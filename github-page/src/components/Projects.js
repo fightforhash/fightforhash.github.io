@@ -1,8 +1,8 @@
 function Projects() {
     return (
       <section id="projects">
-        <h2>Personal and Team Projects</h2>
-        <p>1. speech</p>
+        <h1>Personal and Team Projects</h1>
+        <h2>Coming soon, building the website at the moment.</h2>
       </section>
     );
   }

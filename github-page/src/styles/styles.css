@@ -1,0 +1,255 @@
+body {
+    /* Set the background image */
+    background-image: url('https://www.solidbackgrounds.com/images/7680x4320/7680x4320-caribbean-green-solid-color-background.jpg');
+    
+    /* Ensure the image covers the entire page */
+    background-size: cover;
+    
+    /* Center the image */
+    background-position: center;
+    
+    /* Prevent the image from repeating */
+    background-repeat: no-repeat;
+    
+    /* Fix the image in place during scrolling */
+    background-attachment: fixed;
+    
+    /* Ensure the body takes up the full viewport height */
+    min-height: 100vh;
+    margin: 0;
+  }
+/* Navbar styles */
+nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+    background-color: #19669574;
+  }
+  
+  nav button {
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    transition: color 0.3s;
+  }
+  
+  nav button:hover {
+    color: #ffd700;
+  }
+  
+  /* Section styles */
+  section {
+    padding: 20px;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    
+    border-radius: 8px;
+    max-width: 1200px; /* or any other value you prefer */
+    margin: 0 auto;
+  }
+  /*about me */
+  .about-me {
+    color: #5f1660;
+    padding: 10px;
+    max-width: 100vw;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .about-me h2 {
+    font-size: 5rem;
+    margin-top:20px;
+    margin-bottom: 10px;
+  }
+  
+  .about-me p {
+    font-size: 2rem; /*사이즈 조정*/
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Tab buttons */
+  .tabs {
+    display: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    background: none;
+    border: none;
+    color: #ef2e2e;
+    font-size: 2rem;
+    cursor: pointer;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+    border-bottom: 2px solid transparent;
+    font-weight: bold;
+  }
+  
+  .tabs button.active {
+    color: #f304e7;
+    border-bottom: 2px solid #6a0dad; /* Underline color for active tab */
+  }
+  
+  .tabs button:hover {
+    color: #8168cb;
+  }
+  
+  /* Tab content styling */
+  .tab-content {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .tab-content p {
+    margin: 10px 0;
+  }
+  
+  .tab-content strong {
+    color: #a04ba0; /* Highlight color for job title and institution */
+  }
+  /*Skills/Intersts*/
+  /* Style for the main skills section */
+  
+  /* Style for each skill pair */
+  .skill-pair {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Style for each skill category within a pair */
+  .skill-category {
+    width: 48%; /* Each category takes up half of the container */
+  }
+  
+  .skill-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .skill-category div {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #skills-interests h2{
+    font-size: 3rem;
+    margin-bottom: -15px;
+  }
+  
+  #skills-interests h3{
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    
+  }
+/* Container for the interest cards */
+    .interest-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
+  
+  /* Individual card styling */
+  .interest-card {
+    background-color: #65bb96;
+    color: #d1ab80;
+    padding: 40px;
+    width: 300px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1.25rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .interest-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Active card style */
+  .interest-card.active {
+    background-color: #00ffb7; /* Change this color as desired for the active state */
+    color: #ee0e0e;
+  }
+  .interest-card img {
+    width: 100%;       /* Makes image fill the card width */
+    height: 150px;     /* Sets a fixed height */
+    object-fit: cover; /* Ensures the image scales without distortion */
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+/* Contact section styling */
+#contact-me {
+    max-width: 700px;
+    max-height: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #c5e7c1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(231, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Heading styling */
+  #contact-me h2 {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: -20px;
+    color: #333;
+  }
+  
+  /* Form field styling */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #555;
+    font-size: 2rem;
+  }
+  
+  /* Input and textarea styling */
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    padding: 30px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    resize: vertical; /* Allows resizing only vertically */
+  }
+  
+  /* Button styling */
+  button[type="submit"] {
+    margin-top: 10px;
+    padding: 40px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #555;
+  }

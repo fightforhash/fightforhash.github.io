@@ -4,6 +4,7 @@ import SkillsInterests from './components/SkillsInterests';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
+import './styles/styles.css';
 
 function App() {
   const [activeSection, setActiveSection] = useState('about-me');
