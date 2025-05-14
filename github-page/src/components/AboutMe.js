@@ -1,24 +1,63 @@
 import { useState } from 'react';
 
 function AboutMe() {
-  const [activeTab, setActiveTab] = useState('experience'); 
+  const [activeTab, setActiveTab] = useState('experience');
 
   const renderContent = () => {
     switch (activeTab) {
       case 'experience':
         return (
           <div>
-            <p><strong>July 2024 - Current</strong><br />Assistant Manager at H-Mart</p>
-            <p><strong>July 2020 - Aug 2020</strong><br />Information Technology Assistant at ULCHI Law Firm</p>
+            <div className="experience-item">
+              <div className="experience-date">July 2024 - Present</div>
+              <div className="experience-title">Assistant Manager</div>
+              <div className="experience-company">H-Mart</div>
+              <div className="experience-description">
+                • Conducted meetings with item vendors and wrote scripts that automates reorder process with C++ to enhance turnover. <br></br>
+                • Developed a coin calculation program in C++ to assist cashiers who struggled with change counting, improving checkout efficiency.
+              </div>
+            </div>
+
+            <div className="experience-item">
+              <div className="experience-date">July 2020 - August 2020</div>
+              <div className="experience-title">Information Technology Assistant</div>
+              <div className="experience-company">ULCHI Law Firm</div>
+              <div className="experience-description">
+                • Assisted in the development of software for case management and document summarization with mySQL and Python <br></br>
+                • Analyzed legal disputes to enhance software development and attorney workflows, leveraging Matplotlib for data visualization.
+              </div>
+            </div>
+
           </div>
         );
       case 'education':
         return (
           <div>
-            <p><strong>Bachelor of Science in Computer Science</strong><br />University of Wisconsin-Madison, 2024</p>
-            <p><strong>Bachelor of Science in Information Science</strong><br />University of Wisconsin-Madison, 2024</p>
-            <p><strong>High School Diploma</strong><br />Kyungmoon High School, 2019</p>
-          </div>
+            <div className="education-item">
+              <div className="education-date">2020 - 2024</div>
+              <div className="education-title">Bachelor of Science in Computer Science</div>
+              <div className="education-institution">University of Wisconsin-Madison</div>
+              <div className="education-description">
+                • GPA: 3.5/4.0
+                • Relevant Coursework: Data Structures, Algorithms, Operating Systems
+              </div>
+            </div>
+
+            <div className="education-item">
+              <div className="education-date">2020 - 2024</div>
+              <div className="education-title">Bachelor of Science in Information Science</div>
+              <div className="education-institution">University of Wisconsin-Madison</div>
+              <div className="education-description">
+                • Focus on Data Analytics and UI Design
+              </div>
+            </div>
+
+            <div className="education-item">
+              <div className="education-date">2015 - 2019</div>
+              <div className="education-title">High School Diploma</div>
+              <div className="education-institution">Kyungmoon High School</div>
+              </div>
+            </div>
         );
       default:
         return null;
@@ -28,12 +67,26 @@ function AboutMe() {
   return (
     <section className="about-me">
       <h2>About Me</h2>
-      <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK-xY779H_NVSgOU9lYp3jNFBQTgAmEAd6hZWqAMpH-NKpbak6PomM-7qwJxnT23J2Uo8&usqp=CAU" alt = "worm"/>
-        <p>
-            Hi, I'm Thomas. I recently graduated from university and am currently working in retail. <br></br>
-            My goal is to break into the tech industry, where I can apply my passion for technology and my ability to learn quickly.<br></br>
-            I'm eager to leverage my skills, explore new opportunities, and make meaningful contributions in tech.
-        </p>
+      <div className="profile-section">
+        <div className="profile-image-container">
+          <img 
+            src="/images/profile.jpg" 
+            alt="Thomas's profile" 
+            className="profile-image"
+          />
+        </div>
+        <div className="profile-text">
+          <p>
+            Hi, I'm Thomas. I recently graduated from the University of Wisconsin-Madison with a double major in Computer Science and Information Science.
+          </p>
+          <p>
+            My passion lies in developing innovative solutions that combine technical excellence with user-centered design. Throughout my academic journey, I've gained extensive experience in full-stack development, data structures, and algorithm optimization.
+          </p>
+          <p>
+            I'm particularly interested in building scalable web applications and exploring new technologies. My goal is to contribute to projects that make a meaningful impact while continuing to grow as a developer.
+          </p>
+        </div>
+      </div>
 
       <div className="tabs">
         <button
