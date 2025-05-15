@@ -35,6 +35,7 @@ function SkillsandInterests() {
             <h3>Programming Languages</h3>
             <div className="skill-items">
               <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript" />
+              <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
               <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python" />
               <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++" />
               <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
@@ -63,7 +64,7 @@ function SkillsandInterests() {
           >
             <img src="../images/devops.jpg" alt="Cloud/DevOps"/>
             <h3>Cloud/DevOps</h3>
-            <p>  Experienced in deploying cloud-native applications using AWS, Docker, and CI/CD pipelines. Skilled in managing DevOps workflows, monitoring systems, and automating infrastructure. </p>
+            <p>Experienced in deploying cloud-native applications using AWS, Docker, and CI/CD pipelines. Skilled in managing DevOps workflows, monitoring systems, and automating infrastructure. </p>
           </div>
           
           <div

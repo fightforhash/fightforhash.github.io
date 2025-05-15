@@ -77,13 +77,13 @@ function AboutMe() {
         </div>
         <div className="profile-text">
           <p>
-            Hi, I'm Thomas. I recently graduated from the University of Wisconsin-Madison with a double major in Computer Science and Information Science.
+            Hi, I'm Thomas. I recently graduated from the University of Wisconsin-Madison with a double major in Computer Science Information Science.
           </p>
           <p>
-            My passion lies in developing innovative solutions that combine technical excellence with user-centered design. Throughout my academic journey, I've gained extensive experience in full-stack development, data structures, and algorithm optimization.
+            My passion lies in developing innovative solutions that combine technical excellence with user-centered design. Specialized in full-stack development with a focus on AWS-based deployment and database management, including schema design and query development for both SQL (MySQL) and NoSQL (MongoDB) systems.
           </p>
           <p>
-            I'm particularly interested in building scalable web applications and exploring new technologies. My goal is to contribute to projects that make a meaningful impact while continuing to grow as a developer.
+            I'm passionate about building scalable web applications with a strong focus on cloud infrastructure, DevOps practices, and efficient database management. I aim to contribute to impactful projects while deepening my expertise across both frontend and backend systems, including modern deployment workflows and robust data architectures.
           </p>
         </div>
       </div>
