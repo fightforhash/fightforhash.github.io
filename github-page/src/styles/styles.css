@@ -620,11 +620,13 @@ button[type="submit"]:hover::before {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  /* 네비게이션 바 모바일 스타일 개선 */
+  /* 네비게이션 바 모바일 스타일 개선 - 가로 배치, 하단 위치 */
   nav {
-    flex-direction: column;
-    padding: 10px;
-    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 8px 5px;
+    gap: 5px;
     position: fixed;
     bottom: 0;
     top: auto;
@@ -632,16 +634,35 @@ button[type="submit"]:hover::before {
   }
 
   nav button {
-    width: 100%;
-    font-size: 0.9rem;
-    padding: 10px;
+    flex: 0 1 auto;
+    font-size: 0.8rem;
+    padding: 6px 8px;
     border-radius: 6px;
     text-align: center;
+    white-space: nowrap;
   }
 
   /* 본문 여백 조정 - 하단 네비게이션바 고려 */
   .about-me, #skills-interests, #projects, #contact-me {
-    margin-bottom: 80px;
+    margin-top: 20px;
+    margin-bottom: 60px; /* 하단 네비게이션바 높이 고려 */
+  }
+
+  /* Projects와 Contact 폰트 크기 조정 */
+  #projects h1 {
+    font-size: 2rem;
+  }
+
+  .project-description {
+    font-size: 0.95rem;
+  }
+
+  .tech-tag {
+    font-size: 0.85rem;
+  }
+
+  #contact-me h2 {
+    font-size: 2rem;
   }
 
   /* 기존 스타일 유지 */
