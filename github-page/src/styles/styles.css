@@ -620,6 +620,31 @@ button[type="submit"]:hover::before {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  /* 네비게이션 바 모바일 스타일 개선 */
+  nav {
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  nav button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  /* 본문 여백 조정 - 하단 네비게이션바 고려 */
+  .about-me, #skills-interests, #projects, #contact-me {
+    margin-bottom: 80px;
+  }
+
+  /* 기존 스타일 유지 */
   .profile-section {
     flex-direction: column;
     align-items: center;
