@@ -5,7 +5,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
 import './styles/styles.css';
-//Trigger deploy 3
+//Trigger deploy 4
 function App() {
   const [activeSection, setActiveSection] = useState('about-me');
 
