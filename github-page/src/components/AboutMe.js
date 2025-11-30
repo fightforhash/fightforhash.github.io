@@ -9,25 +9,24 @@ function AboutMe() {
         return (
           <div>
             <div className="experience-item">
-              <div className="experience-date">July 2024 - Present</div>
-              <div className="experience-title">Assistant Manager</div>
-              <div className="experience-company">H-Mart</div>
+              <div className="experience-date">July 2024 - Nov 2025</div>
+              <div className="experience-title">Retail Operations & Technical Support</div>
+              <div className="experience-company">H-Mart (Seattle, WA)</div>
               <div className="experience-description">
-                • Conducted meetings with item vendors and wrote scripts that automates reorder process with C++ to enhance turnover. <br></br>
-                • Developed a coin calculation program in C++ to assist cashiers who struggled with change counting, improving checkout efficiency.
+                • Collaborated with item vendors and built C++ automation scripts to streamline the product reorder workflow, reducing manual steps and improving inventory turnover efficiency. <br></br>
+                • Created a C++ change-calculation tool that supported cashiers with accurate and faster checkout operations, contributing to smoother front-end service.
               </div>
             </div>
 
             <div className="experience-item">
               <div className="experience-date">July 2020 - August 2020</div>
               <div className="experience-title">Information Technology Assistant</div>
-              <div className="experience-company">ULCHI Law Firm</div>
+              <div className="experience-company">ULCHI Law Firm (Seoul, South Korea)</div>
               <div className="experience-description">
-                • Assisted in the development of software for case management and document summarization with mySQL and Python <br></br>
-                • Analyzed legal disputes to enhance software development and attorney workflows, leveraging Matplotlib for data visualization.
+                • Supported development of internal case-management tools using Python and MySQL, contributing to improved document handling and workflow efficiency. <br></br>
+                • Assisted attorneys by analyzing legal disputes and generating data-driven summaries and visualizations with Matplotlib, improving clarity and decision-making during case preparation.
               </div>
             </div>
-
           </div>
         );
       case 'education':
@@ -48,7 +47,7 @@ function AboutMe() {
               <div className="education-title">Bachelor of Science in Information Science</div>
               <div className="education-institution">University of Wisconsin-Madison</div>
               <div className="education-description">
-                • Focus on Data Analytics and UI Design
+                • Focus on UI/UX Design, Data Analytics
               </div>
             </div>
 
@@ -77,14 +76,16 @@ function AboutMe() {
         </div>
         <div className="profile-text">
           <p>
-            Hi, I'm Thomas. I recently graduated from the University of Wisconsin-Madison with a double major in Computer Science Information Science.
+            Hi, I'm Thomas. I recently graduated from the University of Wisconsin–Madison with a double major in Computer Science and Information Science.
           </p>
           <p>
-            My passion lies in developing innovative solutions that combine technical excellence with user-centered design. Specialized in full-stack development with a focus on AWS-based deployment and database management, including schema design and query development for both SQL (MySQL) and NoSQL (MongoDB) systems.
+            I focus on building clean, responsive, and user-centered web interfaces with modern JavaScript frameworks. My core strength lies in front-end development—working with React, TypeScript, and component-driven design to create intuitive and high-performance experiences.
+          </p>
+          <p> 
+            I also enjoy the full-stack pipeline, from designing APIs with Node.js/Express to integrating databases like MySQL and MongoDB. I’m currently deepening my skills in frontend architecture, performance optimization, and scalable deployment workflows.          
           </p>
           <p>
-            I'm passionate about building scalable web applications with a strong focus on cloud infrastructure, DevOps practices, and efficient database management. I aim to contribute to impactful projects while deepening my expertise across both frontend and backend systems, including modern deployment workflows and robust data architectures.
-          </p>
+            Outside of development, I'm a guitarist drawn to blues and jazz fusion — they keep my creativity sharp and grounded as I create.          </p>
         </div>
       </div>
 

@@ -111,8 +111,8 @@ nav button:hover {
 }
 
 .profile-image {
-  width: 400px;
-  height: 500px;
+  width: 450px;
+  height: 530px;
   border-radius: 20px;
   object-fit: cover;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -250,6 +250,50 @@ nav button:hover {
 }
 
 /* Skills/Interests Section */
+.skills-section,
+.publication-column {
+  flex: 0 0 50%;             /* ← 좌우 반반 */
+  max-width: 50%;      /* ← 양쪽이 정확히 반반 차지 */
+  box-sizing: border-box;
+}
+.skills-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skills + Publications 모바일 정렬 Fix */
+@media (max-width: 768px) {
+
+  .skills-publications-grid {
+    flex-direction: column !important;
+    gap: 1.5rem;
+  }
+
+  .skills-section,
+  .publication-column {
+    flex: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .publication-card {
+    max-width: 100% !important;
+  }
+    /* 스킬 카드 모바일 정렬 Fix */
+  .skill-category {
+    width: 100% !important;
+    margin: 0 auto !important;   /* 가운데 정렬 */
+    box-sizing: border-box;
+  }
+
+  .skills-grid {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+}
+
 #skills-interests {
   max-width: 1200px;
   margin: 60px auto 0;
@@ -274,20 +318,19 @@ nav button:hover {
 }
 
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto auto;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;       /* ← 전체 너비 차지 */
 }
-
 .skill-category {
   background: var(--background-secondary);
-  padding: 0.8rem;
+  padding: 0.7rem;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  width: 100%;
 }
 
 .skill-category:hover {
@@ -358,6 +401,50 @@ nav button:hover {
 .skill-items img.highlight:hover {
   transform: scale(1.12);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* publication */
+.skills-publications-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+.publication-column { /* 아무기능 X*/
+ padding: none;
+}
+
+.publication-card {
+  background: var(--background-secondary);
+  padding: 0.5rem 1.5rem 1.0rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  max-width: 550px;   
+  margin-top: 1rem;
+}
+
+.publication-card img {
+  width: 100%;        
+  max-height: 260px; 
+  object-fit: cover;  
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+.publication-card:hover {
+  transform: translateY(-4px); /* 살짝 위로 */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10); /* Skills 카드처럼 shadow 강화 */
+  cursor: pointer;
+}
+
+.articledescription {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 }
 
 /* Interest Cards */
@@ -696,8 +783,11 @@ button[type="submit"]:hover::before {
   }
 
   .skills-grid {
+    display: flex;
+    flex-direction: column;
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    width: 100%;
   }
 
   .skill-category.frameworks,
@@ -889,7 +979,7 @@ button[type="submit"]:hover::before {
 .project-link i {
   margin-right: 0.5rem;
 }
-
+/* --- Mobile styles --- */
 @media (max-width: 768px) {
   #projects h1 {
     font-size: 2.5rem;
@@ -901,5 +991,94 @@ button[type="submit"]:hover::before {
 
   .project-card {
     margin: 0 1rem;
+  }
+
+  .project-card img,
+  .project-card::after {
+    pointer-events: none; 
+  }
+
+  /* Featured Section (Mobile) */
+  .featured-card {
+    max-width: 500px;
+    padding: 1.2rem;
+  }
+
+  .featured-image {
+    max-height: 280px;
+  }
+}
+
+/* === Featured Projects 공통 스타일 (모바일/데스크탑 공통) === */
+
+.featured-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* 카드 가운데 정렬 */
+  gap: 2rem;
+  padding: 0 1rem 3rem;
+}
+
+/* 카드 전체 박스 */
+.featured-card {
+  width: 100%;
+  max-width: 800px;          /* 카드 최대 폭 */
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  text-decoration: none;
+  overflow: hidden;          /* 이미지 모서리 깔끔하게 자르기 */
+  transition: transform .25s ease, box-shadow .25s ease;
+  cursor: pointer;
+}
+
+.featured-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 26px rgba(0,0,0,0.12);
+}
+
+/* 카드 상단 이미지 */
+.featured-image {
+  display: block;
+  width: 100%;
+  height: 260px;             /* 적당한 고정 높이 */
+  object-fit: cover;         /* 꽉 채우되 비율 유지 */
+  border-radius: 0;          /* 위쪽은 카드가 자르게 함 */
+  margin: 0;                 /* 여백 제거 */
+}
+
+/* 카드 본문 */
+.featured-content {
+  padding: 1.5rem 1.75rem 1.75rem;
+}
+
+.featured-content h3 {
+  background-clip: text;
+  font-size: 1.6rem;
+  margin-bottom: .6rem;
+  background: linear-gradient(120deg, #2563eb, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.featured-content p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+/* 모바일에서 살짝 줄이기 */
+@media (max-width: 768px) {
+  .featured-card {
+    max-width: 100%;
+  }
+
+  .featured-image {
+    height: 220px;
+  }
+  .tabs button {
+    font-size: 0.9rem !important;
+    padding: 0.6rem 1rem !important;
+    white-space: nowrap !important;
   }
 }

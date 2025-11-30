@@ -1,7 +1,16 @@
 import React from 'react';
 
 function Projects() {
-  const projects = [
+  const featured = [
+      {
+      title: "Local RAG Pipeline on RTX 5080 (Coming Soon)",
+      description:
+        "End-to-end RAG application featuring local multimodal inference (LLaVA), document ingestion pipeline, GPU memory optimization, and React/Node.js frontend.",
+      image: "/images/ComingSoon.jpg",
+      tech: ["React", "Node.js", "GPU", "LLaVA", "Docker", "RAG", "FAISS"],
+      github: "#",
+      live: "#"
+    },
     {
       title: "LostLink",
       description: "A mobile-first platform that helps organizations manage and match lost & found items using AI-powered metadata tagging and secure user authentication.",
@@ -9,7 +18,10 @@ function Projects() {
       tech: ["React", "Node.js", "MongoDB", "AI/ML", "Expo", "Mobile", "Docker", "AWS"],
       github: "https://github.com/fightforhash/lostlink",
       live : "#"
-    },
+    }
+  ];
+
+  const others = [
     {
       title: "Coin Calculator",
       description: "Built to help cashiers struggling with uneven coin distribution when giving change. Uses DFS backtracking and standard deviation to find the most balanced combination of coins automatically.",
@@ -41,49 +53,71 @@ function Projects() {
       tech: ["Unity", "C#", "Asset Simulation", "VR"],
       github: "https://github.com/fightforhash/VRArtMuseumSimulator",
       live : "#"
-    },
-
-  ];
+    }
+  ]
 
   return (
     <section id="projects">
       <h1>Personal and Team Projects</h1>
+
+{/* Featured Projects */}
+  <div className="featured-container">
+    {featured.map((project, index) => (
+      <a
+        key={index}
+        href={project.github === "#" ? undefined : project.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="featured-card"
+      >
+        <img
+          src={project.image}
+          alt={project.title}
+          className="featured-image"
+        />
+        <div className="featured-content">
+          <h3>{project.title}</h3>
+          <p>{project.description}</p>
+          <div className="project-tech">
+            {project.tech.map((t, idx) => (
+              <span key={idx} className="tech-tag">
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+
+      {/* Other Projects */}
+      <h2 className="others-title">Other Projects</h2>
       <div className="projects-grid">
-        {projects.map((project, index) => (
-          <div 
-            key={index} 
+        {others.map((project, index) => (
+          <div
+            key={index}
             className="project-card"
-            onClick={() => window.open(project.github, '_blank', 'noopener,noreferrer')}
+            onClick={() =>
+              window.open(project.github, "_blank", "noopener,noreferrer")
+            }
           >
-            <img 
-              src={project.image} 
-              alt={project.title} 
+            <img
+              src={project.image}
+              alt={project.title}
               className="project-image"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/400x200?text=Project+Image';
-              }}
             />
             <div className="project-content">
               <h3 className="project-title">{project.title}</h3>
               <p className="project-description">{project.description}</p>
+
               <div className="project-tech">
                 {project.tech.map((tech, techIndex) => (
-                  <span key={techIndex} className="tech-tag">{tech}</span>
+                  <span key={techIndex} className="tech-tag">
+                    {tech}
+                  </span>
                 ))}
               </div>
-              <div className="project-links">
-                {project.live && project.live !== "#" && (
-                  <a 
-                    href={project.live} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="project-link demo-link"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <i className="fas fa-external-link-alt"></i> Live Demo
-                  </a>
-                )}
-              </div>
+
             </div>
           </div>
         ))}
