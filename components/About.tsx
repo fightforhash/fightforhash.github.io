@@ -27,7 +27,7 @@ export const About = () => {
                 <div className="absolute -inset-2 bg-neon/20 rounded-none skew-x-3 opacity-0 group-hover:opacity-100 transition duration-500" />
                 <div className="relative overflow-hidden border border-white/10 bg-zinc-900 aspect-[3/4]">
                    <img 
-                    src="/images/profile.jpg" 
+                    src="https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/profile.jpg" 
                     alt="Thomas Ha" 
                     className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
                    />

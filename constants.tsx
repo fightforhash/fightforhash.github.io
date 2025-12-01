@@ -113,7 +113,7 @@ export const PROJECTS: Project[] = [
     description: "End-to-end RAG application featuring local multimodal inference (LLaVA), document ingestion pipeline, GPU memory optimization, and React/Node.js frontend.",
     techStack: ["React", "Node.js", "GPU", "LLaVA", "Docker", "RAG", "FAISS"],
     // projectUrl removed to make it non-clickable
-    imageUrl: "/images/ComingSoon.jpg",
+    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/ComingSoon.jpg",
     status: "In Development",
     featured: true
   },
@@ -122,8 +122,8 @@ export const PROJECTS: Project[] = [
     title: "LostLink",
     description: "A mobile-first platform that helps organizations manage and match lost & found items using AI-powered metadata tagging and secure user authentication.",
     techStack: ["React", "Node.js", "MongoDB", "AI/ML", "Expo", "Mobile", "Docker", "AWS"],
-    githubUrl: "https://github.com/fightforhash/lostlink",
-    imageUrl: "/images/InProgress.jpg",
+    githubUrl: "https://github.com/fightforhash/Lostlink",
+    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/InProgress.jpg",
     status: "In Progress",
     featured: true
   },
@@ -133,7 +133,7 @@ export const PROJECTS: Project[] = [
     description: "Built to help cashiers struggling with uneven coin distribution when giving change. Uses DFS backtracking and standard deviation to find the most balanced combination of coins automatically.",
     techStack: ["Python", "DFS", "Statistics", "Algorithm"],
     githubUrl: "https://github.com/fightforhash/CoinCalculator",
-    imageUrl: "/images/StarCoin.jpg",
+    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/StarCoin.jpg",
     featured: false
   },
   {
@@ -142,7 +142,7 @@ export const PROJECTS: Project[] = [
     description: "Implemented a full UNIX-style filesystem in user space using FUSE and C. Features include inode & block bitmap management, directory hierarchy, file create/read/write/delete, POSIX metadata support, and proper error codes.",
     techStack: ["C", "FUSE", "POSIX API", "mmap", "Makefile"],
     githubUrl: "https://github.com/fightforhash/FUSEfilesystem",
-    imageUrl: "/images/filesystem.jpeg",
+    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/filesystem.jpeg",
     featured: false
   },
   {
@@ -151,7 +151,7 @@ export const PROJECTS: Project[] = [
     description: "AI-Powered Othello Game featuring Alpha-Beta Pruning algorithm for optimized gameplay. Built with Python, Tkinter GUI, and MySQL for storing user stats. Designed database schema and implemented tables for game data management.",
     techStack: ["Algorithm", "Python", "Tkinter", "MySQL"],
     githubUrl: "https://github.com/fightforhash/PythonOthello",
-    imageUrl: "/images/othello.jpeg",
+    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/othello.jpeg",
     featured: false
   },
   {
@@ -160,7 +160,7 @@ export const PROJECTS: Project[] = [
     description: "Developed a Unity Asset Simulator using C# and Unity, enabling users to teleport within a virtual environment. The project supports VR headsets and simulates real-time asset interaction for immersive testing and visualization.",
     techStack: ["Unity", "C#", "Asset Simulation", "VR"],
     githubUrl: "https://github.com/fightforhash/VRArtMuseumSimulator",
-    imageUrl: "/images/simulator.jpg",
+    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/simulator.jpg",
     featured: false
   }
 ];
