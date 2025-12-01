@@ -94,7 +94,7 @@ export const Hero = () => {
             className="mt-12 flex flex-col md:flex-row md:items-end justify-between border-t border-white/10 pt-8"
           >
             <p className="text-slate-300 text-lg max-w-lg leading-relaxed font-light drop-shadow-md">
-              <span className="text-white font-medium">Full-Stack Engineer</span> combining architectural logic with creative design. Building scalable, high-performance web interfaces with modern React ecosystems.
+              <span className="text-white font-medium">Frontend-focused Full-Stack Engineer</span> combining architectural logic with creative design. Building scalable, high-performance web interfaces with modern React ecosystems.
             </p>
             
             <div className="mt-8 md:mt-0 flex flex-col items-end gap-2">

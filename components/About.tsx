@@ -34,7 +34,6 @@ export const About = () => {
                    {/* Tech Overlay */}
                    <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
                         <p className="font-mono text-[10px] text-neon uppercase tracking-widest">
-                            IMG_REF: 0X_PROFILE
                         </p>
                    </div>
                 </div>
