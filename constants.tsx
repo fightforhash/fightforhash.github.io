@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
   title: "Frontend & Full-Stack Engineer",
   tagline: "Building clean, responsive, and user-centered web interfaces.",
   bio: "Hi, I'm Thomas. I recently graduated from the University of Wisconsin–Madison with a double major in Computer Science and Information Science. I focus on building clean, responsive, and user-centered web interfaces with modern JavaScript frameworks. My core strength lies in front-end development—working with React, TypeScript, and component-driven design to create intuitive and high-performance experiences. I also enjoy the full-stack pipeline, from designing APIs with Node.js/Express to integrating databases like MySQL and MongoDB. I'm currently deepening my skills in frontend architecture, performance optimization, and scalable deployment workflows. Outside of development, I'm a guitarist drawn to blues and jazz fusion — they keep my creativity sharp and grounded as I create.",
-  email: "contact@thomasha.dev", // Placeholder for UI logic, form action is used for actual contact
+  email: "contact@thomasha.dev", // Placeholder for UI logic, form action is used for actual contact!
   location: "Seattle, WA",
   socials: [
     { name: 'GitHub', url: 'https://github.com/fightforhash', icon: Github },
