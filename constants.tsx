@@ -88,21 +88,22 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Building a Local RAG Pipeline on RTX 5080",
     excerpt: "Experiments with LLaVA, FAISS, Node.js, and React Native — covering architecture choices, GPU memory considerations, and real-world performance tradeoffs.",
     url: "https://fightforhash.hashnode.dev",
-    image: "/images/RAGPIPELINE.png"
+    image: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/RAGPIPELINE.png",
+
   },
   {
     id: "2",
     title: "React Design Patterns I wish I knew earlier",
     excerpt: "Lessons learned from building complex interfaces: state management pitfalls, memoization strategies, rendering performance, and practical hook usage in production-level apps.",
     url: "https://fightforhash.hashnode.dev",
-    image: "/images/REACTPATTERN.png"
+    image : "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/REACTPATTERN.png",
   },
   {
     id: "3",
     title: "Deploying Cloud-Native Services on AWS",
     excerpt: "A practical breakdown of Dockerization, CI/CD pipelines, multi-environment provisioning, and scalable backend architecture for full-stack applications.",
     url: "https://fightforhash.hashnode.dev",
-    image: "/images/AWS.png"
+    image: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/AWS.png",
   }
 ];
 
