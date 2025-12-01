@@ -52,21 +52,21 @@ export const EDUCATION_HISTORY: Education[] = [
     id: "1",
     degree: "Bachelor of Science in Computer Science",
     institution: "University of Wisconsin-Madison",
-    period: "2020 - 2024",
+    period: "2021 - 2024",
     details: ["GPA: 3.5/4.0", "Data Structures", "Algorithms", "Operating Systems"]
   },
   {
     id: "2",
     degree: "Bachelor of Science in Information Science",
     institution: "University of Wisconsin-Madison",
-    period: "2020 - 2024",
+    period: "2022 - 2024",
     details: ["Focus on UI/UX Design", "Data Analytics"]
   },
   {
     id: "3",
     degree: "High School Diploma",
     institution: "Kyungmoon High School",
-    period: "2015 - 2019",
+    period: "2017 - 2019",
     details: []
   }
 ];
