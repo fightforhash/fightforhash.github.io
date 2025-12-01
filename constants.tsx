@@ -78,7 +78,7 @@ export const PUBLICATIONS: Publication[] = [
     conference: "KSEA UKC 2025 (Aug 2025)",
     description: "Presented a poster introducing a full-stack web application project, covering the system's architecture, React/TypeScript frontend, Node.js backend API design, and the deployment workflow using AWS EC2 and S3 in a production-like environment.",
     link: "https://drive.google.com/file/d/1iKFNqydrp9rGK_ij2msxzH-YGcrMvgOm/view",
-    image: "/images/Presentation.jpeg"
+    image: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/Presentation.jpeg"
   }
 ];
 
