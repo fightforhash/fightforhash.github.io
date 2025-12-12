@@ -84,48 +84,48 @@ export const PUBLICATIONS: Publication[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    id: "1",
-    title: "Building a Local RAG Pipeline on RTX 5080",
-    excerpt: "Experiments with LLaVA, FAISS, Node.js, and React Native — covering architecture choices, GPU memory considerations, and real-world performance tradeoffs.",
-    url: "https://fightforhash.hashnode.dev",
-    image: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/RAGPIPELINE.png",
-
+  id: "1",
+  title: "What I Learned Deploying LostLink: Vercel + EC2 + Nginx + MongoDB Atlas",
+  excerpt: "A practical write-up on deploying a full-stack app end-to-end — covering reverse proxy/HTTPS setup, env & secrets, CORS/auth pitfalls, and production debugging lessons.",
+  url: "https://fightforhash.hashnode.dev",
+  image: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/lightbulb.jpg",
   },
   {
     id: "2",
     title: "React Design Patterns I wish I knew earlier",
     excerpt: "Lessons learned from building complex interfaces: state management pitfalls, memoization strategies, rendering performance, and practical hook usage in production-level apps.",
     url: "https://fightforhash.hashnode.dev",
-    image : "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/REACTPATTERN.png",
+    image: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/REACTPATTERN.png",
   },
   {
-    id: "3",
-    title: "Deploying Cloud-Native Services on AWS",
-    excerpt: "A practical breakdown of Dockerization, CI/CD pipelines, multi-environment provisioning, and scalable backend architecture for full-stack applications.",
-    url: "https://fightforhash.hashnode.dev",
-    image: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/AWS.png",
+  id: "3",
+  title: "React Intermediate Notes: 6 Things That Keep Breaking My Apps",
+  excerpt: "Common mid-level React pain points: stale closures, effect dependencies, derived state, memoization tradeoffs, async race conditions, and form handling patterns.",
+  url: "https://fightforhash.hashnode.dev",
+  image: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/reactinter.png",
   }
 ];
 
 export const PROJECTS: Project[] = [
   {
     id: "1",
-    title: "Local RAG Pipeline on RTX 5080 (COMING SOON)",
-    description: "End-to-end RAG application featuring local multimodal inference (LLaVA), document ingestion pipeline, GPU memory optimization, and React/Node.js frontend.",
-    techStack: ["React", "Node.js", "GPU", "LLaVA", "Docker", "RAG", "FAISS"],
-    // projectUrl removed to make it non-clickable
-    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/ComingSoon.jpg",
-    status: "In Development",
+    title: "LostLink",
+    description: "A mobile-first platform that helps organizations manage and match lost & found items using AI-powered metadata tagging and secure user authentication.",
+    techStack: ["React", "Node.js", "MongoDB", "Tailwind", "AI/ML", "Expo", "Mobile", "Docker", "EC2", "S3", "Auth0", "Vercel", "Resend"],
+    githubUrl: "https://github.com/fightforhash/Lostlink",
+    projectUrl: "https://lostlink-rust.vercel.app",
+    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/image.png",
+    status: "Deployed",
     featured: true
   },
   {
     id: "2",
-    title: "LostLink",
-    description: "A mobile-first platform that helps organizations manage and match lost & found items using AI-powered metadata tagging and secure user authentication.",
-    techStack: ["React", "Node.js", "MongoDB", "AI/ML", "Expo", "Mobile", "Docker", "AWS"],
-    githubUrl: "https://github.com/fightforhash/Lostlink",
-    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/InProgress.jpg",
-    status: "In Progress",
+    title: "FlashBack",
+    description: "An AR-based social PWA that lets users drop songs and stories to GPS 'Memory Spots' for others to discover, featuring music search, AI mood curation, and voice-first interactions.",
+    techStack: ["React", "Typescript", "Tailwind", "Vite", "PWA", "Firebase", "Google Maps API", "iTunes API", "Vertex AI", "Elevenlabs"],
+    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/ComingSoon.jpg",
+    githubUrl: "https://github.com/fightforhash/FlashBack",
+    status: "In Development",
     featured: true
   },
   {
