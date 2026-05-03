@@ -35,7 +35,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 bg-zinc-950 border-t border-white/5">
+    <section id="contact" className="py-20 bg-zinc-950 border-t border-white/5">
       <div className="container mx-auto px-6">
         
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
@@ -52,8 +52,7 @@ export const Contact = () => {
 
                 <Reveal delay={0.2}>
                     <p className="text-slate-400 text-lg leading-relaxed mb-12">
-                        Currently looking for new opportunities in frontend and full-stack engineering. 
-                        Have a project in mind or just want to say hello?
+                        Seeking IT/NOC/helpdesk roles focused on networking, systems administration, and infrastructure. Open to any opportunity — feel free to reach out.
                     </p>
 
                     <div className="space-y-4">
@@ -182,7 +181,7 @@ export const Contact = () => {
         </div>
 
         <Reveal>
-             <footer className="mt-32 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+             <footer className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
                 <div className="text-slate-600 text-xs font-mono">
                     <p>&copy; 2025 Thomas Ha.</p>
                     <p>Built with React, Tailwind, Framer Motion.</p>

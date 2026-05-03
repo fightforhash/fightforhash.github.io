@@ -4,11 +4,11 @@ import { Reveal } from './ui/Reveal';
 
 export const About = () => {
   return (
-    <section id="about" className="py-32 bg-void relative border-t border-white/5">
+    <section id="about" className="py-20 bg-void relative border-t border-white/5">
       <div className="container mx-auto px-6">
-        
+
         {/* Header */}
-        <div className="mb-24">
+        <div className="mb-14">
             <Reveal>
                 <span className="font-mono text-neon text-sm tracking-widest uppercase mb-4 block">01 / The Profile</span>
                 <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
@@ -54,13 +54,13 @@ export const About = () => {
           {/* Timeline */}
           <div className="lg:col-span-7">
             <Reveal delay={0.3}>
-                <h3 className="text-2xl font-bold text-white mb-12 flex items-center gap-4">
+                <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-4">
                     Experience
                     <div className="h-[1px] flex-grow bg-white/10" />
                 </h3>
             </Reveal>
               
-            <div className="space-y-12">
+            <div className="space-y-8">
                 {EXPERIENCES.map((exp) => (
                   <Reveal key={exp.id} width="100%">
                     <div className="group relative border-l border-white/10 pl-8 md:pl-12 hover:border-neon/50 transition-colors duration-300">
@@ -86,7 +86,7 @@ export const About = () => {
             </div>
 
             <Reveal delay={0.4}>
-                <h3 className="text-2xl font-bold text-white mt-20 mb-12 flex items-center gap-4">
+                <h3 className="text-2xl font-bold text-white mt-12 mb-8 flex items-center gap-4">
                     Education
                     <div className="h-[1px] flex-grow bg-white/10" />
                 </h3>
@@ -112,6 +112,12 @@ export const About = () => {
                   </Reveal>
                 ))}
             </div>
+
+            <Reveal delay={0.5}>
+              <p className="mt-10 text-xs font-mono text-slate-600 border-t border-white/5 pt-6">
+                KSEA UKC 2025 — Poster: <span className="text-slate-500">An Architectural Analysis of an AI-Infused Full-Stack Web Application Powered by RAG</span>
+              </p>
+            </Reveal>
 
           </div>
         </div>

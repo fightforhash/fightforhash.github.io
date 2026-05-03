@@ -6,7 +6,8 @@ import { PERSONAL_INFO } from '../constants';
 const navLinks = [
   { name: 'Index', href: '#hero' },
   { name: 'Profile', href: '#about' },
-  { name: 'Works', href: '#projects' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' },
 ];
 
