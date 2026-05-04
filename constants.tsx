@@ -6,7 +6,7 @@ export const PERSONAL_INFO = {
   name: "Thomas Ha",
   title: "IT Support Specialist · CCNA in Progress",
   tagline: "Keeping infrastructure online. Incidents resolved. Networks stable.",
-  bio: "IT professional with 1.5+ years of Tier 1/2 support experience. Managed network uptime across 5+ checkout stations, triaged 20+ weekly tickets, and administered Active Directory for 50+ employees at H Mart Seattle. When workflows are manual and slow, I automate them with Python. Currently studying for the CCNA. UW–Madison CS, GPA 3.5.",
+  bio: "CS major who ended up on the infrastructure side and never looked back. Spent 1.5+ years keeping H Mart's network running across 5+ checkout stations, triaging 20+ weekly tickets, and managing Active Directory for 50+ employees. When I find a manual workflow, I automate it with Python. Currently grinding toward the CCNA.",
   email: "rackoon1030@gmail.com",
   location: "Seattle, WA",
   socials: [

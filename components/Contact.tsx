@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PERSONAL_INFO } from '../constants';
 import { Reveal } from './ui/Reveal';
-import { ArrowRight, Github, Linkedin, MessageSquare, Check, Loader2, AlertCircle } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, MessageSquare, Check, Loader2, AlertCircle, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const Contact = () => {
@@ -56,10 +56,10 @@ export const Contact = () => {
                     </p>
 
                     <div className="space-y-4">
-                         <a href={`mailto:${PERSONAL_INFO.email}`} className="block text-white text-xl hover:text-neon transition-colors font-mono">
-                            {PERSONAL_INFO.email}
-                        </a>
                         <div className="flex gap-6 pt-4">
+                            <a href={`mailto:${PERSONAL_INFO.email}`} className="text-slate-500 hover:text-white transition-colors">
+                                <Mail size={24} />
+                            </a>
                             {PERSONAL_INFO.socials.map(social => (
                                 <a 
                                     key={social.name} 
