@@ -6,7 +6,7 @@ export const PERSONAL_INFO = {
   name: "Thomas Ha",
   title: "IT Support Specialist · CCNA in Progress",
   tagline: "Keeping infrastructure online. Incidents resolved. Networks stable.",
-  bio: "CS major who ended up on the infrastructure side and never looked back. Spent 1.5+ years keeping H Mart's network running across 5+ checkout stations, triaging 20+ weekly tickets, and managing Active Directory for 50+ employees. When I find a manual workflow, I automate it with Python. Currently grinding toward the CCNA.",
+  bio: "CS major who ended up on the infrastructure side and never looked back. Working in IT, with a growing interest in networking and NetDevOps — where network automation meets infrastructure. Currently preparing for the CCNA. Outside of tech, I enjoy tackling high-difficulty guitar pieces in my free time.",
   email: "rackoon1030@gmail.com",
   location: "Seattle, WA",
   socials: [
@@ -40,7 +40,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "2",
-    role: "Information Technology Assistant",
+    role: "IT Intern",
     company: "ULCHI Law Firm — Seoul, South Korea",
     period: "Jul 2020 – Aug 2020",
     description: [
