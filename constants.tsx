@@ -1,5 +1,5 @@
 
-import { Project, Experience, Education, Publication, BlogPost } from './types';
+import { Project, Experience, Education, Publication } from './types';
 import { Github, Linkedin, MessageSquare } from 'lucide-react';
 
 export const PERSONAL_INFO = {
@@ -75,31 +75,7 @@ export const PUBLICATIONS: Publication[] = [
     conference: "KSEA UKC 2025 (Aug 2025)",
     description: "Presented a poster covering the system's cloud architecture, AWS EC2/S3 deployment workflow, Nginx reverse proxy configuration, Docker containerization, and production infrastructure decisions for a full-stack application.",
     link: "https://drive.google.com/file/d/1iKFNqydrp9rGK_ij2msxzH-YGcrMvgOm/view",
-    image: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/Presentation.jpeg"
-  }
-];
-
-export const BLOG_POSTS: BlogPost[] = [
-  {
-    id: "1",
-    title: "Deploying LostLink: EC2 + Nginx Reverse Proxy + Docker from Scratch",
-    excerpt: "A practical walkthrough of setting up AWS EC2, configuring Nginx as a reverse proxy with HTTPS, containerizing with Docker, and the production debugging lessons that followed.",
-    url: "https://fightforhash.hashnode.dev",
-    image: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/lightbulb.jpg",
-  },
-  {
-    id: "2",
-    title: "Active Directory in Practice: Managing 50+ Users at a Retail Scale",
-    excerpt: "Real-world notes on user provisioning, RBAC, and password policy at H Mart — what broke, what I learned, and how to keep AD clean under pressure.",
-    url: "https://fightforhash.hashnode.dev",
-    image: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/AWS.png",
-  },
-  {
-    id: "3",
-    title: "Python Automation for IT Ops: Killing the Manual Reconciliation Loop",
-    excerpt: "How I replaced daily manual inventory reporting with a Python script — what the workflow looked like before, the automation logic, and measurable impact on operational errors.",
-    url: "https://fightforhash.hashnode.dev",
-    image: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/devops.jpg",
+    image: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/Presentation.jpeg"
   }
 ];
 
@@ -111,7 +87,7 @@ export const PROJECTS: Project[] = [
     techStack: ["AWS EC2/S3", "Docker", "Nginx", "Node.js", "MongoDB", "Auth0", "Vercel"],
     githubUrl: "https://github.com/fightforhash/Lostlink",
     projectUrl: "https://lostlink-rust.vercel.app",
-    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/image.png",
+    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/image.png",
     status: "Deployed",
     featured: true
   },
@@ -120,7 +96,7 @@ export const PROJECTS: Project[] = [
     title: "FlashBack",
     description: "Integrated and monitored external APIs (Google Maps, Vertex AI, ElevenLabs, iTunes) into a unified Firebase backend. Ensured reliable, low-latency responses for mobile clients under variable load with real-time data sync.",
     techStack: ["TypeScript", "Firebase", "Google Maps API", "Vertex AI", "ElevenLabs", "PWA", "Vite"],
-    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/ComingSoon.jpg",
+    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/ComingSoon.jpg",
     githubUrl: "https://github.com/fightforhash/FlashBack",
     projectUrl: "https://music-map-drop.vercel.app/",
     status: "Deployed",
@@ -132,7 +108,7 @@ export const PROJECTS: Project[] = [
     description: "Built to solve a real cashier problem at H Mart: uneven coin distribution when giving change. Uses DFS backtracking with standard deviation scoring to find the most balanced coin combination automatically.",
     techStack: ["Python", "DFS", "Statistics", "Algorithm"],
     githubUrl: "https://github.com/fightforhash/CoinCalculator",
-    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/StarCoin.jpg",
+    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/StarCoin.jpg",
     featured: false
   },
   {
@@ -141,7 +117,7 @@ export const PROJECTS: Project[] = [
     description: "Implemented a full UNIX-style filesystem in user space using FUSE and C. Features inode & block bitmap management, directory hierarchy, file create/read/write/delete, POSIX metadata support, and proper error codes.",
     techStack: ["C", "FUSE", "POSIX API", "mmap", "Makefile"],
     githubUrl: "https://github.com/fightforhash/FUSEfilesystem",
-    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/filesystem.jpeg",
+    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/filesystem.jpeg",
     featured: false
   },
   {
@@ -150,7 +126,7 @@ export const PROJECTS: Project[] = [
     description: "Othello game with an AI opponent using Alpha-Beta Pruning for optimized move selection. Python/Tkinter GUI with MySQL backend for storing user stats and game history.",
     techStack: ["Python", "Algorithm", "Tkinter", "MySQL"],
     githubUrl: "https://github.com/fightforhash/PythonOthello",
-    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/othello.jpeg",
+    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/othello.jpeg",
     featured: false
   },
   {
@@ -159,7 +135,7 @@ export const PROJECTS: Project[] = [
     description: "Unity-based VR environment built with C# supporting teleportation and real-time asset interaction. Compatible with VR headsets for immersive visualization and testing.",
     techStack: ["Unity", "C#", "VR", "Asset Simulation"],
     githubUrl: "https://github.com/fightforhash/VRArtMuseumSimulator",
-    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/master/images/simulator.jpg",
+    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/simulator.jpg",
     featured: false
   }
 ];

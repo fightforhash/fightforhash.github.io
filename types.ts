@@ -37,9 +37,14 @@ export interface Publication {
 }
 
 export interface BlogPost {
-  id: string;
+  /** URL segment — from frontmatter `slug`, else derived from the filename. */
+  slug: string;
   title: string;
+  /** ISO date (YYYY-MM-DD) — from frontmatter `date`, else the filename prefix. */
+  date: string;
   excerpt: string;
-  url: string;
-  image: string;
+  tags: string[];
+  /** Raw markdown body, rendered by BlogPostView. */
+  body: string;
+  cover?: string;
 }

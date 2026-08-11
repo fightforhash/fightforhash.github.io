@@ -1,0 +1,348 @@
+/* ============================================================
+   TRON x console — glow system
+
+   Tailwind is compiled at build time (tailwind.config.js), not
+   pulled from the CDN: a runtime CDN means an outage or a
+   blocked network renders the whole site unstyled, and it ships
+   a ~400KB in-browser compiler on every page load.
+
+   This file owns what Tailwind can't express: emissive edges,
+   the grid floor, markdown prose, and the code highlight theme.
+   ============================================================ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon: #00f0ff;
+  --neon-bright: #c8fbff;
+  --neon-body: #8fc7d4;
+  --neon-dim: #2f6b78;
+  --neon-line: rgba(0, 240, 255, 0.18);
+  --neon-glow: rgba(0, 240, 255, 0.45);
+  --amber: #ff9d1e;
+  --amber-glow: rgba(255, 157, 30, 0.45);
+  --panel: #070c12;
+  --raise: #0b131c;
+}
+
+/* ---------- Base ------------------------------------------- */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--panel);
+    background-color: #04060a;
+    color: var(--neon-body);
+    overflow-x: hidden;
+    font-family: 'IBM Plex Mono', 'Nanum Gothic Coding', monospace;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #04060a; }
+  ::-webkit-scrollbar-thumb { background: #123039; border-radius: 0; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--neon); }
+}
+
+/* Page-wide flat grid, masked top and bottom. */
+.bg-grid {
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, 5%, black, 95%, transparent);
+}
+
+/* ---------- Emissive 1px edges ------------------------------
+   TRON's whole visual grammar is "the outline is the light
+   source". Borders carry a box-shadow, not just a color. */
+
+.edge {
+  border: 1px solid var(--neon-line);
+  box-shadow: 0 0 8px -2px var(--neon-glow), inset 0 0 12px -8px var(--neon-glow);
+}
+
+.edge-hot {
+  border-color: var(--neon);
+  box-shadow: 0 0 14px -2px var(--neon-glow), inset 0 0 16px -8px var(--neon-glow);
+}
+
+.edge-amber {
+  border-color: rgba(255, 157, 30, 0.35);
+  box-shadow: 0 0 10px -2px var(--amber-glow), inset 0 0 14px -8px var(--amber-glow);
+}
+
+/* Circuit-trace divider */
+.rule {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, var(--neon), transparent);
+  box-shadow: 0 0 8px var(--neon-glow);
+  opacity: 0.55;
+}
+
+.rule-flat {
+  height: 1px;
+  border: 0;
+  background: var(--neon-line);
+}
+
+.glow { text-shadow: 0 0 8px var(--neon-glow); }
+.glow-sm { text-shadow: 0 0 4px var(--neon-glow); }
+.glow-amber { text-shadow: 0 0 8px var(--amber-glow); }
+
+/* ---------- Perspective grid floor (TRON signature) -------- */
+
+.grid-floor {
+  background-image:
+    linear-gradient(to right, var(--neon-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--neon-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  transform: perspective(320px) rotateX(72deg);
+  transform-origin: bottom center;
+  mask-image: linear-gradient(to top, black, transparent 70%);
+  -webkit-mask-image: linear-gradient(to top, black, transparent 70%);
+}
+
+/* Mobile: perspective creates a huge composited layer and
+   janks scrolling. Fall back to a flat grid. */
+@media (max-width: 767px) {
+  .grid-floor {
+    transform: none;
+    background-size: 32px 32px;
+    opacity: 0.5;
+  }
+}
+
+/* ---------- Console caret --------------------------------- */
+
+@keyframes caret-blink { 50% { opacity: 0; } }
+
+.caret::after {
+  content: '\25AE';
+  margin-left: 0.15em;
+  color: var(--neon);
+  animation: caret-blink 1.06s steps(1) infinite;
+}
+
+.caret-solid::after {
+  content: '\25AE';
+  margin-left: 0.15em;
+  color: var(--neon);
+}
+
+/* ---------- Low-stimulus mode (GRID: OFF) ------------------ */
+
+html[data-grid="off"] .edge,
+html[data-grid="off"] .edge-hot,
+html[data-grid="off"] .edge-amber,
+html[data-grid="off"] .rule { box-shadow: none; }
+
+html[data-grid="off"] .rule {
+  background: var(--neon-line);
+  opacity: 1;
+}
+
+html[data-grid="off"] .glow,
+html[data-grid="off"] .glow-sm,
+html[data-grid="off"] .glow-amber { text-shadow: none; }
+
+html[data-grid="off"] .grid-floor,
+html[data-grid="off"] .bg-grid { display: none; }
+
+html[data-grid="off"] .caret::after { animation: none; }
+
+/* ---------- Accessibility --------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .caret::after { animation: none; }
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Keyboard focus has to survive on a dark, low-contrast page. */
+:focus-visible {
+  outline: 1px solid var(--neon);
+  outline-offset: 2px;
+}
+
+/* ---------- Markdown prose (blog post body) ---------------- */
+
+.prose-console {
+  color: var(--neon-body);
+  font-size: 0.875rem;
+  line-height: 1.75;
+  max-width: 68ch;
+}
+
+/* Code-only contexts (the automation snippets) want the full column.
+   Two classes beat the single-class rule above regardless of source order. */
+.prose-console.prose-wide {
+  max-width: none;
+}
+
+.prose-console > * + * { margin-top: 1.1em; }
+
+.prose-console h1,
+.prose-console h2,
+.prose-console h3,
+.prose-console h4 {
+  color: var(--neon-bright);
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  text-shadow: 0 0 8px var(--neon-glow);
+}
+
+.prose-console h1 { font-size: 1.25rem; }
+.prose-console h2 { font-size: 1.125rem; }
+.prose-console h3 { font-size: 1rem; }
+.prose-console h4 { font-size: 0.9375rem; }
+
+/* Section headings read as CLI sub-commands */
+.prose-console h2::before,
+.prose-console h3::before {
+  content: '## ';
+  color: var(--neon-dim);
+  text-shadow: none;
+}
+
+.prose-console a {
+  color: var(--neon);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--neon-line);
+}
+.prose-console a:hover { text-decoration-color: var(--neon); }
+
+.prose-console strong { color: var(--neon-bright); font-weight: 600; }
+.prose-console em { color: var(--neon-bright); font-style: italic; }
+
+.prose-console ul,
+.prose-console ol { padding-left: 1.5em; }
+.prose-console ul { list-style: none; }
+.prose-console ul > li { position: relative; }
+.prose-console ul > li::before {
+  content: '>';
+  position: absolute;
+  left: -1.2em;
+  color: var(--neon-dim);
+}
+.prose-console ol { list-style: decimal; }
+.prose-console li + li { margin-top: 0.4em; }
+.prose-console li::marker { color: var(--neon-dim); }
+
+.prose-console blockquote {
+  border-left: 2px solid var(--neon-line);
+  box-shadow: -4px 0 12px -8px var(--neon-glow);
+  padding-left: 1em;
+  color: var(--neon-dim);
+}
+
+.prose-console hr {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, var(--neon), transparent);
+  opacity: 0.4;
+  margin: 2.5em 0;
+}
+
+.prose-console img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--neon-line);
+}
+
+/* Tables — network people paste a lot of tabular output */
+.prose-console table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  display: block;
+  overflow-x: auto;
+}
+.prose-console th {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.6875rem;
+  color: var(--neon-dim);
+  padding: 0.5em 1em 0.5em 0;
+  border-bottom: 1px solid var(--neon-line);
+  white-space: nowrap;
+}
+.prose-console td {
+  padding: 0.5em 1em 0.5em 0;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.07);
+  vertical-align: top;
+}
+
+/* ---------- Code ------------------------------------------- */
+
+.prose-console code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85em;
+  color: var(--amber);
+  background: rgba(255, 157, 30, 0.08);
+  padding: 0.1em 0.4em;
+  border: 1px solid rgba(255, 157, 30, 0.18);
+}
+
+.prose-console pre {
+  background: var(--panel);
+  border: 1px solid var(--neon-line);
+  box-shadow: 0 0 12px -4px var(--neon-glow), inset 0 0 20px -12px var(--neon-glow);
+  padding: 1em 1.1em;
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.prose-console pre code {
+  color: var(--neon-body);
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* highlight.js theme — cyan/amber, no external stylesheet.
+   Also applied outside .prose-console (Automation section). */
+.hljs { color: var(--neon-body); background: transparent; }
+.hljs-comment,
+.hljs-quote { color: var(--neon-dim); font-style: italic; }
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-doctag,
+.hljs-type { color: var(--amber); }
+.hljs-string,
+.hljs-regexp,
+.hljs-addition { color: var(--neon); }
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-meta { color: #ffc978; }
+.hljs-title,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-attr,
+.hljs-attribute { color: var(--neon-bright); }
+.hljs-built_in,
+.hljs-class .hljs-title { color: var(--neon-bright); font-weight: 600; }
+.hljs-variable,
+.hljs-template-variable,
+.hljs-params { color: var(--neon-body); }
+.hljs-deletion { color: #ff5f56; }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 600; }

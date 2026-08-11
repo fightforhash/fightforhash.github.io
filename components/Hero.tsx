@@ -1,119 +1,132 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useMemo, useRef, useState } from 'react';
 import { PERSONAL_INFO } from '../constants';
-import { DitheringShader } from './ui/dithering-shader';
+import { INTERFACES, CONNECTED_COUNT } from '../lib/interfaces';
+import { runCommand } from '../lib/commands';
+import { Console } from './ui/Console';
+import { BootSequence } from './ui/BootSequence';
+import { ShaderField } from './ui/ShaderField';
+import { Label } from './ui/Terminal';
+import { Terminal as TerminalIcon } from 'lucide-react';
+
+const BOOT_LINES = [
+  'System Bootstrap, Version 2026.08',
+  `Detecting interfaces ........... ${INTERFACES.length} found`,
+  `Line protocol .................. ${CONNECTED_COUNT} up, ${INTERFACES.length - CONNECTED_COUNT} in study`,
+  'Loading profile ................ OK',
+  '%SYS-5-RESTART: System restarted — console ready',
+];
 
 export const Hero = () => {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const sectionRef = useRef<HTMLElement>(null);
+  const [booted, setBooted] = useState(false);
+  const [pulseUntil, setPulseUntil] = useState<number | undefined>(undefined);
+  const [mobileConsole, setMobileConsole] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-    
-    // Initial size
-    if (typeof window !== 'undefined') {
-        handleResize();
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  /** The console opens on the same banner the `show version` command prints. */
+  const banner = useMemo(() => runCommand('show version').lines ?? [], []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      
-      {/* Background Shader & Overlay */}
-      {dimensions.width > 0 && (
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 opacity-30">
-            <DitheringShader 
-              width={dimensions.width}
-              height={dimensions.height}
-              colorBack="#030303"
-              colorFront="#00f0ff"
-              shape="circle"
-              type="2x2"
-              pxSize={4}
-              speed={1}
-            />
-          </div>
-          {/* 
-             Gradient to fade out shader at the bottom for text readability.
-             Concentrated at the bottom (0-40%) to keep text legible while revealing animation above.
-          */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#030303] from-0% via-[#030303]/90 via-20% to-transparent to-50%" />
-        </div>
-      )}
+    <section
+      ref={sectionRef}
+      id="hero"
+      className="relative min-h-[88vh] flex items-center overflow-hidden pt-24 pb-10"
+    >
+      <ShaderField containerRef={sectionRef} pulseUntil={pulseUntil} />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-void to-transparent pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-5xl">
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-4 mb-8"
-          >
-            <div className="h-[1px] w-12 bg-neon/50"></div>
-            <span className="text-neon font-mono text-sm tracking-widest uppercase">
-              System Online
-            </span>
-          </motion.div>
-          
-          <div className="overflow-hidden">
-            <motion.h1
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.1 }}
-              className="text-6xl md:text-8xl lg:text-[10rem] leading-none font-bold tracking-tighter text-white mb-2"
-            >
-              THOMAS
-            </motion.h1>
-          </div>
-          
-          <div className="overflow-hidden">
-             <motion.h1
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.2 }}
-              className="text-6xl md:text-8xl lg:text-[10rem] leading-none font-bold tracking-tighter text-white/5"
-              style={{ WebkitTextStroke: "1px rgba(255, 255, 255, 0.5)" }}
-            >
-              HA
-            </motion.h1>
-          </div>
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          {/* Identity readout — data, not a billboard */}
+          <div className="lg:col-span-4">
+            <Label>system</Label>
+            <h1 className="mt-2 text-xl md:text-2xl font-semibold tracking-tight text-neon-bright glow">
+              {PERSONAL_INFO.name}
+            </h1>
 
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 1 }}
-            className="mt-12 flex flex-col md:flex-row md:items-end justify-between border-t border-white/10 pt-8"
-          >
-            <p className="text-slate-300 text-lg max-w-lg leading-relaxed font-light drop-shadow-md">
-              <span className="text-white font-medium">IT Support Specialist & Network Technician</span> keeping infrastructure online, resolving incidents fast, and automating the repetitive. CCNA in progress.
+            <div className="rule mt-4 mb-4" />
+
+            <dl className="font-mono text-[11px] md:text-xs space-y-1.5">
+              <Row term="role" value="IT Support Specialist" />
+              <Row term="location" value={PERSONAL_INFO.location} />
+              <Row term="track" value="NetDevOps / network engineering" />
+              <Row term="cert" value="CCNA — in progress" tone="amber" />
+              <Row term="interfaces" value={`${CONNECTED_COUNT}/${INTERFACES.length} connected`} />
+              <Row term="status" value="available for work" tone="neon" />
+            </dl>
+
+            <p className="mt-5 font-mono text-[11px] text-neon-body leading-relaxed max-w-sm">
+              Keeping infrastructure online, resolving incidents fast, and automating the
+              repetitive.
             </p>
-            
-            <div className="mt-8 md:mt-0 flex flex-col items-end gap-2">
-                 <span className="font-mono text-xs text-slate-400 uppercase tracking-widest">Current Location</span>
-               <span className="text-white font-medium drop-shadow-md">{PERSONAL_INFO.location}</span>
+
+            <BootSequence lines={BOOT_LINES} onDone={() => setBooted(true)} className="mt-5" />
+          </div>
+
+          {/* The console */}
+          <div className="lg:col-span-8">
+            {/* Desktop / tablet: always live */}
+            <Console
+              banner={booted ? banner : []}
+              onPulse={ms => setPulseUntil(Date.now() + ms)}
+              className="hidden md:flex h-[440px]"
+            />
+
+            {/* Mobile: opt-in, so the virtual keyboard does not hijack the page */}
+            <div className="md:hidden">
+              {mobileConsole ? (
+                <Console
+                  banner={banner}
+                  onPulse={ms => setPulseUntil(Date.now() + ms)}
+                  className="flex h-[380px]"
+                />
+              ) : (
+                <div className="edge bg-void/70 p-4">
+                  {/* The readout above already carries `show version`, so the
+                      collapsed state advertises the console instead of repeating it. */}
+                  <p className="font-mono text-[11px] text-neon-dim leading-relaxed">
+                    Interactive console. Try{' '}
+                    <span className="text-neon">show interfaces status</span>,{' '}
+                    <span className="text-neon">show inventory</span>,{' '}
+                    <span className="text-neon">ping 8.8.8.8</span>, or{' '}
+                    <span className="text-neon">traceroute career</span>.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setMobileConsole(true)}
+                    className="edge edge-hot mt-4 w-full py-2.5 font-mono text-[11px] uppercase tracking-[0.25em] text-neon flex items-center justify-center gap-2"
+                  >
+                    <TerminalIcon size={13} /> open console
+                  </button>
+                </div>
+              )}
             </div>
-          </motion.div>
 
+            <p className="mt-3 font-mono text-[10px] text-neon-dim tracking-[0.15em] hidden md:block">
+              try: <span className="text-neon">help</span> ·{' '}
+              <span className="text-neon">show interfaces status</span> ·{' '}
+              <span className="text-neon">ping 8.8.8.8</span> ·{' '}
+              <span className="text-neon">traceroute career</span>
+            </p>
+          </div>
         </div>
-      </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute right-0 bottom-0 p-12 opacity-20 pointer-events-none z-10">
-         <div className="flex gap-2">
-            {[...Array(5)].map((_, i) => (
-                <div key={i} className="w-2 h-2 bg-neon rounded-full animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />
-            ))}
-         </div>
       </div>
     </section>
   );
 };
+
+const Row = ({
+  term,
+  value,
+  tone = 'body',
+}: {
+  term: string;
+  value: string;
+  tone?: 'body' | 'neon' | 'amber';
+}) => (
+  <div className="flex gap-3">
+    <dt className="text-neon-dim w-24 shrink-0">{term}</dt>
+    <dd className={tone === 'neon' ? 'text-neon' : tone === 'amber' ? 'text-amber' : 'text-neon-body'}>
+      {value}
+    </dd>
+  </div>
+);
