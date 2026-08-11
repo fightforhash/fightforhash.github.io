@@ -1,5 +1,6 @@
 import { PERSONAL_INFO, PROJECTS, EXPERIENCES, EDUCATION_HISTORY, PUBLICATIONS } from '../constants';
 import { INTERFACES, CONNECTED_COUNT } from './interfaces';
+import { TOPOLOGY, CDP_NEIGHBORS } from './topology';
 import { POSTS } from './posts';
 
 /* ------------------------------------------------------------------
@@ -193,13 +194,31 @@ export const COMMANDS: Command[] = [
   },
 
   {
-    name: 'show automation',
-    help: 'network automation snippets',
+    name: 'show cdp neighbors',
+    aliases: ['show cdp', 'show topology'],
+    help: 'lab topology and neighbour table',
     run: () => ({
       lines: [
-        body('Loading automation samples — netmiko, Ansible, GitHub Actions.'),
+        ...TOPOLOGY.split('\n').map(text => ({ text, tone: 'neon' as Tone })),
+        blank(),
+        dim(
+          `${pad('Device ID', 12)}${pad('Local Intrfce', 16)}${pad('Holdtme', 10)}${pad(
+            'Capability',
+            13
+          )}${pad('Platform', 13)}Port ID`
+        ),
+        ...CDP_NEIGHBORS.map(n => ({
+          text: `${pad(n.device, 12)}${pad(n.local, 16)}${pad(n.holdtime, 10)}${pad(
+            n.capability,
+            13
+          )}${pad(n.platform, 13)}${n.port}`,
+          tone: 'body' as Tone,
+        })),
+        blank(),
+        dim('Capability Codes: R router, S switch, I IGMP, H host, P phone'),
       ],
-      navigate: '#automation',
+      // No navigate: the console output is the whole payload here, so
+      // scrolling to the section would just show the same diagram twice.
     }),
   },
 
