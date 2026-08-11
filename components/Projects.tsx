@@ -19,9 +19,9 @@ export const Projects = () => (
 
     <p className="mt-6 font-mono text-[11px] text-neon-dim leading-relaxed max-w-2xl">
       Python / Bash tooling from day-to-day IT ops — inventory workflows, AD provisioning, log
-      parsing — is listed under{' '}
-      <a href="#automation" className="text-neon hover:text-neon-bright underline underline-offset-2">
-        show automation
+      parsing — is described under{' '}
+      <a href="#logs" className="text-neon hover:text-neon-bright underline underline-offset-2">
+        show logging
       </a>
       .
     </p>

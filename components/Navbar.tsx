@@ -6,7 +6,7 @@ import { GridToggle, useGridMode } from './ui/GridOverlay';
 const navLinks = [
   { name: '~/profile', href: '#about' },
   { name: '~/interfaces', href: '#skills' },
-  { name: '~/automation', href: '#automation' },
+  { name: '~/topology', href: '#topology' },
   { name: '~/inventory', href: '#projects' },
   { name: '~/posts', href: '#blog' },
   { name: '~/contact', href: '#contact' },
