@@ -1,42 +1,34 @@
 import React from 'react';
-import { SKILLS } from '../constants';
-import { Reveal } from './ui/Reveal';
-export const Skills = () => {
-  return (
-    <section id="skills" className="py-20 bg-zinc-950 relative overflow-hidden border-t border-white/5">
-      <div className="container mx-auto px-6">
+import { INTERFACES, CONNECTED_COUNT } from '../lib/interfaces';
+import { TerminalSection, StatusTable, StatusPill, StatusColumn } from './ui/Terminal';
 
-        <Reveal>
-          <span className="font-mono text-neon text-sm tracking-widest uppercase mb-4 block">02 / Capabilities</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-14">
-            Technical <span className="text-slate-500">Arsenal.</span>
-          </h2>
-        </Reveal>
+const COLUMNS: StatusColumn[] = [
+  { key: 'port', label: 'Port', width: 'w-20' },
+  { key: 'name', label: 'Name' },
+  { key: 'status', label: 'Status', width: 'w-36' },
+  { key: 'vlan', label: 'Vlan', width: 'w-16', hideBelow: 'sm' },
+  { key: 'type', label: 'Type', width: 'w-32', hideBelow: 'md' },
+];
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-8">
-          <TechColumn title="Networking" items={SKILLS.networking} index={1} />
-          <TechColumn title="Systems & Support" items={SKILLS.systems} index={2} />
-          <TechColumn title="Monitoring & IR" items={SKILLS.monitoring} index={3} />
-          <TechColumn title="Scripting & Infra" items={SKILLS.scripting} index={4} />
-        </div>
+const rows = INTERFACES.map(iface => ({
+  port: <span className="text-neon-dim">{iface.port}</span>,
+  name: <span className={iface.learning ? 'text-amber' : 'text-neon-bright'}>{iface.label}</span>,
+  status: <StatusPill state={iface.learning ? 'notconnect' : 'connected'} />,
+  vlan: <span className="text-neon-dim">{iface.vlan}</span>,
+  type: <span className="text-neon-dim uppercase text-[10px] tracking-[0.18em]">{iface.type}</span>,
+}));
 
-      </div>
-    </section>
-  );
-};
+export const Skills = () => (
+  <TerminalSection
+    id="skills"
+    command="show interfaces status"
+    meta={`${CONNECTED_COUNT}/${INTERFACES.length} connected`}
+    className="bg-grid-panel/40"
+  >
+    <StatusTable columns={COLUMNS} rows={rows} rowKey={(_, i) => INTERFACES[i].port} />
 
-const TechColumn = ({ title, items, index }: { title: string, items: string[], index: number }) => (
-    <Reveal delay={index * 0.1}>
-        <div className="border-t border-white/20 pt-6">
-            <h3 className="text-lg font-bold text-white mb-6 font-mono uppercase tracking-wider">{title}</h3>
-            <ul className="space-y-3">
-                {items.map(item => (
-                    <li key={item} className="text-slate-400 text-xs font-mono hover:text-neon transition-colors cursor-default flex items-center gap-3">
-                        <div className="w-1 h-1 bg-slate-600 rounded-full" />
-                        {item}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    </Reveal>
+    <p className="mt-5 font-mono text-[11px] text-neon-dim">
+      <span className="text-amber">notconnect</span> = in study, not yet certified.
+    </p>
+  </TerminalSection>
 );
