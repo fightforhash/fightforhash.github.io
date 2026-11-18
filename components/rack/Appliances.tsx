@@ -22,10 +22,10 @@ const Appliance: React.FC<{ project: Project; start: number; index: number }> = 
         className={`grid gap-4 md:gap-6 items-center ${
           project.featured
             ? 'md:grid-cols-[180px_minmax(0,1fr)_auto]'
-            : 'md:grid-cols-[110px_minmax(0,1fr)_auto]'
+            : 'md:grid-cols-[140px_minmax(0,1fr)_auto]'
         }`}
       >
-        {/* Front of the box: a screen on the big ones, drive bays on the small ones. */}
+        {/* Front of the box: a status screen; the 1U boxes keep two drive bays under it. */}
         {project.featured ? (
           <div className="hidden md:block bg-[#1b1d20] p-[6px] rounded-[2px]">
             <div className="aspect-[16/10] overflow-hidden bg-black">
@@ -33,10 +33,16 @@ const Appliance: React.FC<{ project: Project; start: number; index: number }> = 
             </div>
           </div>
         ) : (
-          <div className="hidden md:grid grid-cols-2 gap-1" aria-hidden="true">
-            {[0, 1, 2, 3].map(b => (
-              <span key={b} className="bay h-[14px] rounded-[1px]" />
-            ))}
+          <div className="hidden md:block">
+            <div className="bg-[#1b1d20] p-[5px] rounded-[2px]">
+              <div className="aspect-[16/10] overflow-hidden bg-black">
+                <img src={project.imageUrl} alt="" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-1 mt-1.5" aria-hidden="true">
+              <span className="bay h-[9px] rounded-[1px]" />
+              <span className="bay h-[9px] rounded-[1px]" />
+            </div>
           </div>
         )}
 

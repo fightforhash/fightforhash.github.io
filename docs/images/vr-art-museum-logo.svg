@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="t">
+  <title id="t">VR Art Museum logo: a VR headset whose lenses show a starry swirl and a great wave</title>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="80%">
+      <stop offset="0" stop-color="#2a1f45"/>
+      <stop offset="1" stop-color="#120c20"/>
+    </radialGradient>
+    <clipPath id="l"><rect x="262" y="128" width="124" height="124" rx="22"/></clipPath>
+    <clipPath id="r"><rect x="414" y="128" width="124" height="124" rx="22"/></clipPath>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- Strap and shell. -->
+  <path d="M 222 190 Q 150 190 150 150" fill="none" stroke="#6b5a99" stroke-width="10" stroke-linecap="round"/>
+  <path d="M 578 190 Q 650 190 650 150" fill="none" stroke="#6b5a99" stroke-width="10" stroke-linecap="round"/>
+  <path d="M 250 104 L 550 104 Q 578 104 578 132 L 578 252 Q 578 280 550 280 L 452 280 Q 430 280 418 262 L 410 250 Q 400 236 390 250 L 382 262 Q 370 280 348 280 L 250 280 Q 222 280 222 252 L 222 132 Q 222 104 250 104 Z" fill="#e8e4f2"/>
+
+  <!-- Left lens: a starry-night swirl. -->
+  <g clip-path="url(#l)">
+    <rect x="262" y="128" width="124" height="124" fill="#1f3a8a"/>
+    <path d="M 270 210 C 300 170, 340 230, 380 180" fill="none" stroke="#f6d35b" stroke-width="7" stroke-linecap="round"/>
+    <path d="M 268 236 C 302 200, 338 252, 384 214" fill="none" stroke="#7fb3ff" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="352" cy="152" r="13" fill="#f6d35b"/>
+    <circle cx="290" cy="150" r="5" fill="#f6d35b"/>
+  </g>
+  <!-- Right lens: a great wave. -->
+  <g clip-path="url(#r)">
+    <rect x="414" y="128" width="124" height="124" fill="#f1e6c8"/>
+    <path d="M 414 252 L 414 214 C 430 170, 486 150, 506 186 C 490 176, 470 184, 476 202 C 492 196, 512 210, 538 206 L 538 252 Z" fill="#1d4e89"/>
+    <path d="M 478 186 C 486 176, 498 178, 504 186" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="510" cy="150" r="10" fill="#d9534f"/>
+  </g>
+  <rect x="262" y="128" width="124" height="124" rx="22" fill="none" stroke="#3b2f5c" stroke-width="6"/>
+  <rect x="414" y="128" width="124" height="124" rx="22" fill="none" stroke="#3b2f5c" stroke-width="6"/>
+
+  <text x="400" y="398" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="62" font-weight="800" letter-spacing="-1.5" fill="#ffffff">VR Art Museum</text>
+  <text x="400" y="440" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" fill="#b9add6">walk through the masterpieces, built in Unity</text>
+</svg>
