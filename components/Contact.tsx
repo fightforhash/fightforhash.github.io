@@ -52,8 +52,8 @@ export const Contact = () => {
         <div className="lg:col-span-5">
           <Reveal width="100%">
             <p className="font-mono text-xs md:text-[13px] text-neon-body leading-relaxed">
-              Seeking IT / NOC / helpdesk roles focused on networking, systems administration, and
-              infrastructure. Open to any opportunity — feel free to reach out.
+              Seeking network engineer roles — routing &amp; switching, network automation, and
+              infrastructure. Seattle or remote. Feel free to reach out.
             </p>
 
             <div className="mt-6">

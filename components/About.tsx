@@ -20,9 +20,9 @@ const ProfileSection = () => (
       {/* Photo — small, no editorial hover tricks */}
       <div className="lg:col-span-3">
         <Reveal width="100%">
-          <div className="edge overflow-hidden bg-grid-panel aspect-[4/5] max-w-[220px]">
+          <div className="edge overflow-hidden bg-grid-panel aspect-[4/3] w-full max-w-[320px]">
             <img
-              src="https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/profile.jpg"
+              src="/images/profile.jpg"
               alt="Thomas Ha"
               className="object-cover w-full h-full opacity-90"
               loading="lazy"
