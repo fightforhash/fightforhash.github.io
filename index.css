@@ -1,5 +1,8 @@
 /* ============================================================
-   TRON x console — glow system
+   Base styles under the rack theme (rack.css): console glow,
+   markdown prose and code highlighting for the CRT screens.
+
+   (Formerly the TRON x console glow system.)
 
    Tailwind is compiled at build time (tailwind.config.js), not
    pulled from the CDN: a runtime CDN means an outage or a
@@ -49,13 +52,6 @@
   ::-webkit-scrollbar-thumb:hover { background: var(--neon); }
 }
 
-/* Page-wide flat grid, masked top and bottom. */
-.bg-grid {
-  background-size: 48px 48px;
-  mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
-  -webkit-mask-image: linear-gradient(to bottom, transparent, 5%, black, 95%, transparent);
-}
-
 /* ---------- Emissive 1px edges ------------------------------
    TRON's whole visual grammar is "the outline is the light
    source". Borders carry a box-shadow, not just a color. */
@@ -94,29 +90,6 @@
 .glow-sm { text-shadow: 0 0 4px var(--neon-glow); }
 .glow-amber { text-shadow: 0 0 8px var(--amber-glow); }
 
-/* ---------- Perspective grid floor (TRON signature) -------- */
-
-.grid-floor {
-  background-image:
-    linear-gradient(to right, var(--neon-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--neon-line) 1px, transparent 1px);
-  background-size: 48px 48px;
-  transform: perspective(320px) rotateX(72deg);
-  transform-origin: bottom center;
-  mask-image: linear-gradient(to top, black, transparent 70%);
-  -webkit-mask-image: linear-gradient(to top, black, transparent 70%);
-}
-
-/* Mobile: perspective creates a huge composited layer and
-   janks scrolling. Fall back to a flat grid. */
-@media (max-width: 767px) {
-  .grid-floor {
-    transform: none;
-    background-size: 32px 32px;
-    opacity: 0.5;
-  }
-}
-
 /* ---------- Console caret --------------------------------- */
 
 @keyframes caret-blink { 50% { opacity: 0; } }
@@ -133,27 +106,6 @@
   margin-left: 0.15em;
   color: var(--neon);
 }
-
-/* ---------- Low-stimulus mode (GRID: OFF) ------------------ */
-
-html[data-grid="off"] .edge,
-html[data-grid="off"] .edge-hot,
-html[data-grid="off"] .edge-amber,
-html[data-grid="off"] .rule { box-shadow: none; }
-
-html[data-grid="off"] .rule {
-  background: var(--neon-line);
-  opacity: 1;
-}
-
-html[data-grid="off"] .glow,
-html[data-grid="off"] .glow-sm,
-html[data-grid="off"] .glow-amber { text-shadow: none; }
-
-html[data-grid="off"] .grid-floor,
-html[data-grid="off"] .bg-grid { display: none; }
-
-html[data-grid="off"] .caret::after { animation: none; }
 
 /* ---------- Accessibility --------------------------------- */
 

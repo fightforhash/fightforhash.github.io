@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Line, Tone, runCommand, complete } from '../../lib/commands';
 import { HOSTNAME } from './Terminal';
-import { usePrefersReducedMotion } from './GridOverlay';
+import { usePrefersReducedMotion } from '../../lib/useReducedMotion';
 
 const TONE: Record<Tone, string> = {
   dim: 'text-neon-dim',

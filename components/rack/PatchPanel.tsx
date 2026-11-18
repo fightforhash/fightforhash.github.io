@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Led, Tape } from './parts';
-import { usePrefersReducedMotion } from '../ui/GridOverlay';
+import { usePrefersReducedMotion } from '../../lib/useReducedMotion';
 
 /** Front-panel ports = site sections. Ids match the console's `navigate` targets. */
 export const PORTS: Array<{ id: string; label: string }> = [
