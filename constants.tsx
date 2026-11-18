@@ -111,7 +111,7 @@ export const PROJECTS: Project[] = [
     title: "FlashBack",
     description: "Integrated and monitored external APIs (Google Maps, Vertex AI, ElevenLabs, iTunes) into a unified Firebase backend. Ensured reliable, low-latency responses for mobile clients under variable load with real-time data sync.",
     techStack: ["TypeScript", "Firebase", "Google Maps API", "Vertex AI", "ElevenLabs", "PWA", "Vite"],
-    imageUrl: "https://raw.githubusercontent.com/fightforhash/fightforhash.github.io/main/images/ComingSoon.jpg",
+    imageUrl: "/images/flashback-logo.svg",
     githubUrl: "https://github.com/fightforhash/FlashBack",
     projectUrl: "https://music-map-drop.vercel.app/",
     status: "Deployed",

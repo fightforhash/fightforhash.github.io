@@ -9,11 +9,12 @@ export const PORTS: Array<{ id: string; label: string }> = [
   { id: 'topology', label: 'lab' },
   { id: 'projects', label: 'projects' },
   { id: 'logs', label: 'logs' },
+  { id: 'publications', label: 'talks' },
   { id: 'blog', label: 'writing' },
   { id: 'contact', label: 'contact' },
 ];
 
-/** A 12-port panel; the last five are unpatched, as on any real rack. */
+/** A 12-port panel; the spare ports stay unpatched, as on any real rack. */
 const TOTAL_PORTS = 12;
 
 const goTo = (id: string, onHome: boolean, reduced: boolean) => {

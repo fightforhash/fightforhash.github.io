@@ -1,5 +1,5 @@
 import React from 'react';
-import { EXPERIENCES, EDUCATION_HISTORY, PUBLICATIONS } from '../../constants';
+import { EXPERIENCES, EDUCATION_HISTORY } from '../../constants';
 import { RackUnit } from './parts';
 
 /** Career as a syslog: newest first, the way `show logging` prints it. */
@@ -63,24 +63,6 @@ export const LogScreen: React.FC<{ start: number }> = ({ start }) => {
             </li>
           ))}
 
-          {PUBLICATIONS.map(p => (
-            <li key={p.id} id="publications">
-              {/* `show tech-support` in the console navigates here. */}
-              <span id="automation" />
-              <p>
-                <span className="opacity-70">{p.conference} </span>
-                %PUB-6-POSTER: {p.title}
-              </p>
-              <a
-                href={p.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-1 underline underline-offset-4 hover:text-white"
-              >
-                view poster
-              </a>
-            </li>
-          ))}
         </ol>
       </div>
     </RackUnit>

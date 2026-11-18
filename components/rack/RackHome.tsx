@@ -6,6 +6,7 @@ import { SwitchPanel } from './SwitchPanel';
 import { ConsoleServer } from './ConsoleServer';
 import { Appliances, projectsHeight } from './Appliances';
 import { LogScreen } from './LogScreen';
+import { PosterBoard } from './PosterBoard';
 import { TapeLibrary } from './TapeLibrary';
 import { Pdu } from './Pdu';
 import { RackUnit } from './parts';
@@ -19,6 +20,7 @@ const LAYOUT = [
   ['console', 4],
   ['projects', projectsHeight],
   ['logs', 5],
+  ['poster', 4],
   ['tapes', 3],
   ['pdu', 4],
 ] as const;
@@ -60,6 +62,7 @@ export const RackHome: React.FC<{ footer: React.ReactNode }> = ({ footer }) => (
     <ConsoleServer start={positions.console} />
     <Appliances start={positions.projects} />
     <LogScreen start={positions.logs} />
+    <PosterBoard start={positions.poster} />
     <TapeLibrary start={positions.tapes} />
     <Pdu start={positions.pdu} />
     <Blank at={RACK_HEIGHT + 1} />
