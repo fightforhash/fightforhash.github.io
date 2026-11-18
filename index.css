@@ -10,21 +10,23 @@
    the grid floor, markdown prose, and the code highlight theme.
    ============================================================ */
 
+@import './rack.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --neon: #00f0ff;
-  --neon-bright: #c8fbff;
-  --neon-body: #8fc7d4;
-  --neon-dim: #2f6b78;
-  --neon-line: rgba(0, 240, 255, 0.18);
-  --neon-glow: rgba(0, 240, 255, 0.45);
-  --amber: #ff9d1e;
-  --amber-glow: rgba(255, 157, 30, 0.45);
-  --panel: #070c12;
-  --raise: #0b131c;
+  --neon: #8cff9e;
+  --neon-bright: #d6ffdd;
+  --neon-body: #9fd9a8;
+  --neon-dim: #5c8f66;
+  --neon-line: rgba(140, 255, 158, 0.2);
+  --neon-glow: rgba(140, 255, 158, 0.45);
+  --amber: #ffb020;
+  --amber-glow: rgba(255, 176, 32, 0.45);
+  --panel: #0b1a10;
+  --raise: #10261a;
 }
 
 /* ---------- Base ------------------------------------------- */
@@ -35,11 +37,10 @@
   }
 
   body {
-    background-color: var(--panel);
-    background-color: #04060a;
-    color: var(--neon-body);
+    background-color: #24272a;
+    color: #d5d9de;
     overflow-x: hidden;
-    font-family: 'IBM Plex Mono', 'Nanum Gothic Coding', monospace;
+    font-family: 'Barlow', system-ui, sans-serif;
   }
 
   ::-webkit-scrollbar { width: 6px; }

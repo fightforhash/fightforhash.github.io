@@ -11,8 +11,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['IBM Plex Mono', 'Nanum Gothic Coding', 'monospace'],
-        mono: ['IBM Plex Mono', 'Nanum Gothic Coding', 'ui-monospace', 'monospace'],
+        sans: ['Barlow', 'system-ui', 'sans-serif'],
+        mono: ['IBM Plex Mono', 'ui-monospace', 'monospace'],
       },
       colors: {
         void: '#04060a',
@@ -26,15 +26,16 @@ export default {
           950: '#070c12',
         },
         neon: {
-          DEFAULT: '#00f0ff', // Electric Cyan — normal / links / accents
-          bright: '#c8fbff',  // headings, high emphasis
-          body: '#8fc7d4',    // long-form body copy
-          dim: '#2f6b78',     // metadata, inactive
-          glow: 'rgba(0, 240, 255, 0.45)',
-          line: 'rgba(0, 240, 255, 0.18)',
+          // Rack theme: the console palette is now green CRT phosphor.
+          DEFAULT: '#8cff9e',
+          bright: '#d6ffdd',
+          body: '#9fd9a8',
+          dim: '#5c8f66',
+          glow: 'rgba(140, 255, 158, 0.45)',
+          line: 'rgba(140, 255, 158, 0.2)',
         },
         amber: {
-          DEFAULT: '#ff9d1e', // status / warning / in-progress
+          DEFAULT: '#ffb020', // LED amber
           bright: '#ffc978',
           dim: '#7d4d12',
           glow: 'rgba(255, 157, 30, 0.45)',

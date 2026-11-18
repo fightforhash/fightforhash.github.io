@@ -1,0 +1,387 @@
+/* ============================================================
+   Rack 2000s — the whole page is the front of one 19" rack.
+
+   Materials, not decoration: powder-coated gunmetal rails,
+   brushed-aluminium faceplates, black bezels, label-maker tape,
+   a green-phosphor CRT. Every number on an ear is the device's
+   real position in the rack.
+   ============================================================ */
+
+:root {
+  --rack-frame: #33363a;
+  --cabinet: #24272a;
+  --faceplate: #c3c8cd;
+  --bezel: #2a2d31;
+  --ink: #1d2733;
+  --ink-soft: #3d4a58;
+  --ink-light: #d5d9de;
+  --phosphor: #8cff9e;
+  --crt-glass: #0b1a10;
+  --led-green: #3ee06a;
+  --led-amber: #ffb020;
+  --tape: #f3efd6;
+  --cable: #2d6cdf;
+  --u: 44px;
+}
+
+/* Perforated cabinet door behind the rack. */
+.cabinet {
+  background-color: var(--cabinet);
+  background-image: radial-gradient(circle at 50% 50%, #17191b 1.6px, transparent 1.8px);
+  background-size: 9px 9px;
+}
+
+/* ---------- Rack frame ------------------------------------ */
+
+.rack {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--rack-frame);
+  box-shadow:
+    inset 0 0 0 1px #45494e,
+    0 30px 60px -30px rgba(0, 0, 0, 0.7);
+  padding: 10px 0;
+}
+
+/* One mounted device: [ear][body][ear]. */
+.unit {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  min-height: calc(var(--u) * var(--units, 1));
+  margin: 0 0 3px;
+  scroll-margin-top: 92px;
+}
+
+.ear {
+  position: relative;
+  background: linear-gradient(90deg, #2c2f33, #3b3f44 45%, #2c2f33);
+  border-top: 1px solid #4a4f55;
+  border-bottom: 1px solid #1f2124;
+}
+
+.ear__u {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #9aa1a8;
+}
+
+/* Rack screw: phillips head in a cage nut. */
+.screw {
+  position: absolute;
+  left: 50%;
+  width: 13px;
+  height: 13px;
+  margin-left: -6.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #e6e9ec, #8f969d 55%, #5c6268);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+.screw::before,
+.screw::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #4a4f55;
+}
+.screw::before { width: 7px; height: 1.5px; transform: translate(-50%, -50%); }
+.screw::after  { width: 1.5px; height: 7px; transform: translate(-50%, -50%); }
+.screw--top { top: 10px; }
+.screw--bottom { bottom: 10px; }
+
+/* ---------- Faceplates ------------------------------------ */
+
+.plate {
+  position: relative;
+  color: var(--ink);
+  background-color: var(--faceplate);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0 1px, rgba(0, 0, 0, 0.035) 1px 3px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.08));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    inset 1px 0 0 rgba(255, 255, 255, 0.4),
+    inset -1px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.plate--black {
+  color: var(--ink-light);
+  background-color: var(--bezel);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 45%, rgba(0, 0, 0, 0.25));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* Silkscreen: the printed text on a faceplate. */
+.silk {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Vent slots and drive bays. */
+.vents {
+  background-image: repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.55) 0 3px, transparent 3px 7px);
+  border-radius: 1px;
+}
+.bay {
+  background: linear-gradient(180deg, #9ea4aa, #868c92);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+}
+.plate--black .bay {
+  background: linear-gradient(180deg, #3a3e43, #2c2f33);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- LEDs ------------------------------------------ */
+
+.led {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4b5056;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
+  flex-shrink: 0;
+}
+.led--green { background: var(--led-green); box-shadow: 0 0 6px 1px rgba(62, 224, 106, 0.75); }
+.led--amber { background: var(--led-amber); box-shadow: 0 0 6px 1px rgba(255, 176, 32, 0.75); }
+.led--blink { animation: led-blink 1.1s steps(2, jump-none) infinite; }
+.led--blink-fast { animation: led-blink 0.37s steps(2, jump-none) infinite; }
+
+@keyframes led-blink {
+  0% { opacity: 1; }
+  100% { opacity: 0.25; }
+}
+
+/* ---------- RJ45 jack ------------------------------------- */
+
+.jack {
+  position: relative;
+  width: 30px;
+  height: 24px;
+  background: #0f1012;
+  border: 2px solid #4a4f55;
+  border-radius: 2px;
+  box-shadow: inset 0 3px 4px rgba(0, 0, 0, 0.9);
+}
+/* The latch notch at the bottom of the opening. */
+.jack::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 12px;
+  height: 6px;
+  transform: translateX(-50%);
+  background: #0f1012;
+  border-left: 2px solid #4a4f55;
+  border-right: 2px solid #4a4f55;
+}
+.jack--small { width: 22px; height: 18px; }
+.jack--small::after { width: 8px; height: 4px; }
+
+/* A plugged patch cable: boot sticking out of the jack. */
+.boot {
+  position: absolute;
+  inset: 2px 3px;
+  border-radius: 1px;
+  background: linear-gradient(180deg, #5f97f5, var(--cable) 60%, #1f4fa8);
+}
+
+/* ---------- Label-maker tape ------------------------------ */
+
+.tape {
+  display: inline-block;
+  background: var(--tape);
+  color: #111;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1;
+  padding: 3px 6px 2px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+}
+
+/* ---------- 16x2 LCD -------------------------------------- */
+
+.lcd {
+  background: linear-gradient(180deg, #a9c25a, #93ad44);
+  color: #1d2a0c;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  line-height: 1.05;
+  padding: 6px 10px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.45);
+  border: 3px solid #1b1d20;
+  white-space: pre;
+}
+
+/* ---------- CRT ------------------------------------------- */
+
+.crt {
+  position: relative;
+  background: radial-gradient(ellipse at center, #10261a 0%, var(--crt-glass) 75%);
+  color: var(--phosphor);
+  border-radius: 14px;
+  box-shadow:
+    inset 0 0 40px rgba(0, 0, 0, 0.85),
+    inset 0 0 2px rgba(140, 255, 158, 0.35),
+    0 0 0 6px #1b1d20,
+    0 0 0 8px #3a3e43;
+  text-shadow: 0 0 4px rgba(140, 255, 158, 0.55);
+  overflow: hidden;
+}
+/* Scanlines. Pointer-transparent so the console stays usable. */
+.crt::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 3px);
+  border-radius: inherit;
+}
+.crt,
+.crt * {
+  font-family: 'VT323', ui-monospace, monospace;
+}
+/* VT323 reads small; lift the console's tiny type to a legible size. */
+.crt .text-\[10px\],
+.crt .text-\[11px\],
+.crt .text-xs { font-size: 17px; line-height: 1.25; }
+.crt .text-sm { font-size: 19px; line-height: 1.3; }
+.crt .md\:text-xs { font-size: 17px; }
+/* Long-form posts: VT323 for headings, a plain mono for paragraphs. */
+.crt .prose-console {
+  max-width: 72ch;
+  font-size: 15px;
+}
+.crt .prose-console p,
+.crt .prose-console li,
+.crt .prose-console td {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 15px;
+  line-height: 1.75;
+  text-shadow: none;
+}
+.crt .prose-console h1,
+.crt .prose-console h2,
+.crt .prose-console h3 { font-size: 26px; line-height: 1.1; }
+.crt .prose-console pre,
+.crt .prose-console pre * { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13.5px; text-shadow: none; }
+
+/* ---------- Buttons (front-panel switches) ---------------- */
+
+.btn-panel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 7px 14px 6px;
+  color: #11161c;
+  background: linear-gradient(180deg, #f1f3f5, #c9ced3);
+  border: 1px solid #7d848b;
+  border-radius: 3px;
+  box-shadow: 0 2px 0 #6b7279, inset 0 1px 0 #fff;
+  transition: transform 60ms, box-shadow 60ms;
+}
+.btn-panel:hover { background: linear-gradient(180deg, #ffffff, #d6dbe0); }
+.btn-panel:active { transform: translateY(2px); box-shadow: 0 0 0 #6b7279, inset 0 1px 0 #fff; }
+.btn-panel--dark {
+  color: var(--ink-light);
+  background: linear-gradient(180deg, #4a4f55, #34383d);
+  border-color: #1b1d20;
+  box-shadow: 0 2px 0 #131416, inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+.btn-panel--dark:hover { background: linear-gradient(180deg, #555b62, #3c4046); }
+
+/* Visible keyboard focus everywhere in the rack. */
+.rack-root :focus-visible {
+  outline: 2px solid var(--cable);
+  outline-offset: 2px;
+}
+
+/* ---------- Patch cable plug-in (user-triggered) ----------- */
+
+.cable-drop {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: cable-in 420ms cubic-bezier(0.3, 0.7, 0.3, 1) forwards;
+}
+@keyframes cable-in {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ---------- Asset tag ------------------------------------- */
+
+.asset-tag {
+  background: linear-gradient(135deg, #e9ecef, #bfc5cb 50%, #e3e7ea);
+  color: #1b2129;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+.barcode {
+  height: 26px;
+  background-image: repeating-linear-gradient(90deg,
+    #111 0 2px, transparent 2px 3px, #111 3px 4px, transparent 4px 7px,
+    #111 7px 10px, transparent 10px 11px, #111 11px 12px, transparent 12px 15px);
+}
+
+/* ---------- Printed form (contact ticket) ------------------ */
+
+.ticket {
+  background: #f7f5ec;
+  color: #1b2129;
+  background-image: repeating-linear-gradient(180deg, transparent 0 27px, rgba(45, 108, 223, 0.15) 27px 28px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.ticket-field {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #6b7279;
+  padding: 6px 2px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  color: #11161c;
+}
+.ticket-field:focus { outline: none; border-bottom: 2px solid var(--cable); }
+
+/* ---------- Motion off ------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .led--blink,
+  .led--blink-fast { animation: none; }
+  .cable-drop { animation: none; stroke-dashoffset: 0; }
+  .btn-panel { transition: none; }
+}
+
+/* ---------- Small screens ---------------------------------- */
+
+@media (max-width: 767px) {
+  .unit { grid-template-columns: 22px minmax(0, 1fr) 22px; }
+  .ear__u { display: none; }
+  .screw { width: 9px; height: 9px; margin-left: -4.5px; }
+  .screw::before { width: 5px; }
+  .screw::after { height: 5px; }
+}
+
+/* ---------- Blog pages inside the CRT --------------------- */
+.rack-blog .pt-28 { padding-top: 1rem; }
+.rack-blog .min-h-screen { min-height: 0; }
+.rack-blog .container { max-width: 100%; }
