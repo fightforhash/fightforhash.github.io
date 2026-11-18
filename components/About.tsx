@@ -79,6 +79,16 @@ const ProfileSection = () => (
                       {edu.degree.replace(/\s*—\s*in progress/i, '')}
                     </h4>
                     <p className="font-mono text-[11px] text-neon-dim mb-3">{edu.institution}</p>
+                    {edu.verifyUrl && (
+                      <a
+                        href={edu.verifyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block font-mono text-[11px] text-neon hover:text-neon-bright underline underline-offset-2 mb-3"
+                      >
+                        verify on Credly ↗
+                      </a>
+                    )}
                     {edu.details && edu.details.length > 0 && (
                       <div className="flex flex-wrap gap-x-3 gap-y-1 mt-auto pt-3 border-t border-neon-line">
                         {edu.details.map((d, i) => (

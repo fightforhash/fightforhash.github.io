@@ -46,10 +46,10 @@ export const Hero = () => {
             <div className="rule mt-4 mb-4" />
 
             <dl className="font-mono text-[11px] md:text-xs space-y-1.5">
-              <Row term="role" value="IT Support Specialist" />
+              <Row term="role" value="Network Engineer · Automation" />
               <Row term="location" value={PERSONAL_INFO.location} />
               <Row term="track" value="NetDevOps / network engineering" />
-              <Row term="cert" value="CCNA — in progress" tone="amber" />
+              <Row term="cert" value="CCNA — certified (Nov 2026)" tone="neon" />
               <Row term="interfaces" value={`${CONNECTED_COUNT}/${INTERFACES.length} connected`} />
               <Row term="status" value="available for work" tone="neon" />
             </dl>

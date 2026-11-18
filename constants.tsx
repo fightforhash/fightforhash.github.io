@@ -4,9 +4,9 @@ import { Github, Linkedin, MessageSquare } from 'lucide-react';
 
 export const PERSONAL_INFO = {
   name: "Thomas Ha",
-  title: "IT Support Specialist · CCNA in Progress",
+  title: "Network Engineer · Automation · CCNA",
   tagline: "Keeping infrastructure online. Incidents resolved. Networks stable.",
-  bio: "CS major who ended up on the infrastructure side and never looked back. Working in IT, with a growing interest in networking and NetDevOps — where network automation meets infrastructure. Currently preparing for the CCNA. Outside of tech, I enjoy tackling high-difficulty guitar pieces in my free time.",
+  bio: "CS grad from UW–Madison who found his home on the infrastructure side. Two years in IT support across retail (H Mart) and Amazon, now CCNA certified and focused on network engineering and automation, using Python to configure and verify networks instead of clicking through them. Outside of tech, I'm usually working through a high-difficulty guitar piece.",
   email: "rackoon1030@gmail.com",
   location: "Seattle, WA",
   socials: [
@@ -18,13 +18,27 @@ export const PERSONAL_INFO = {
 };
 
 export const SKILLS = {
-  networking: ["TCP/IP", "DNS", "DHCP", "LAN/WAN", "VPN", "Routers/Switches", "Wi-Fi", "CCNA In Progress"],
+  networking: ["TCP/IP", "DNS", "DHCP", "LAN/WAN", "VPN", "Routers/Switches", "Wi-Fi", "OSPF", "VLANs & Trunking", "ACL / NAT", "IPv6", "CCNA Certified"],
   systems: ["Active Directory", "Windows Server", "Linux (Ubuntu)", "Bash", "POS Systems", "MDM", "Remote Troubleshooting"],
   monitoring: ["Ticket Triage (T1/T2)", "Root Cause Analysis", "SLA Compliance", "Endpoint Management", "Incident Response"],
   scripting: ["Python", "SQL", "AWS (EC2/S3)", "Docker", "Nginx", "Git"]
 };
 
 export const EXPERIENCES: Experience[] = [
+  {
+    id: "0",
+    role: "System Support Specialist",
+    company: "Amazon (contract via Apex Systems) — Seattle, WA",
+    period: "May 2026 – Nov 2026",
+    description: [
+      "Provided on-site systems and hardware support for an entire Amazon site, resolving 40–80 tickets per week in the SIM/T ticketing system.",
+      "Diagnosed and replaced workstation hardware, including monitors, docking stations, cameras and peripherals, for Windows and Mac users.",
+      "Handled incoming requests through email, Slack and work orders within service-level expectations.",
+      "Conducted workstation audits to verify hardware configurations against site standards.",
+      "Reviewed vendor-handled IT tickets daily against a 100-point QA scorecard and recorded findings.",
+      "Ran weekly IT asset inventory counts across multiple Seattle-area sites."
+    ]
+  },
   {
     id: "1",
     role: "IT Support Specialist",
@@ -61,9 +75,10 @@ export const EDUCATION_HISTORY: Education[] = [
   },
   {
     id: "2",
-    degree: "CCNA — In Progress",
+    degree: "CCNA — Cisco Certified Network Associate",
     institution: "Cisco Systems",
-    period: "2025 – Present",
+    period: "Nov 2026",
+    verifyUrl: "https://www.credly.com/badges/f7b83dc8-997e-4b81-b3c5-839c0342e858/public_url",
     details: ["Routing & Switching", "Network Security", "WAN Technologies", "TCP/IP Stack"]
   }
 ];

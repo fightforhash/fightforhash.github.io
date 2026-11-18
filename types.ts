@@ -25,6 +25,8 @@ export interface Education {
   institution: string;
   period: string;
   details?: string[];
+  /** Public verification link (e.g. a Credly badge). */
+  verifyUrl?: string;
 }
 
 export interface Publication {
