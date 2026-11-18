@@ -19,11 +19,7 @@ const Appliance: React.FC<{ project: Project; start: number; index: number }> = 
       bodyClassName="px-5 md:px-8 py-4"
     >
       <article
-        className={`grid gap-4 md:gap-6 items-center ${
-          project.featured
-            ? 'md:grid-cols-[180px_minmax(0,1fr)_auto]'
-            : 'md:grid-cols-[140px_minmax(0,1fr)_auto]'
-        }`}
+        className="grid gap-4 md:gap-6 items-center md:grid-cols-[180px_minmax(0,1fr)_190px]"
       >
         {/* Front of the box: a status screen; the 1U boxes keep two drive bays under it. */}
         {project.featured ? (
@@ -33,7 +29,7 @@ const Appliance: React.FC<{ project: Project; start: number; index: number }> = 
             </div>
           </div>
         ) : (
-          <div className="hidden md:block">
+          <div className="hidden md:block w-[140px]">
             <div className="bg-[#1b1d20] p-[5px] rounded-[2px]">
               <div className="aspect-[16/10] overflow-hidden bg-black">
                 <img src={project.imageUrl} alt="" className="w-full h-full object-cover" loading="lazy" />
@@ -72,7 +68,8 @@ const Appliance: React.FC<{ project: Project; start: number; index: number }> = 
           </ul>
         </div>
 
-        <div className="flex md:flex-col items-center md:items-end gap-3 shrink-0">
+        {/* Fixed-width column so every box lines up, one button or two. */}
+        <div className="flex md:flex-col items-center md:items-end gap-3">
           <span className={`silk flex items-center gap-2 text-[14px] ${black ? '' : 'text-[var(--ink)]'}`}>
             <Led color="green" blink={live ? 'slow' : undefined} />
             {live ? 'live' : 'repo'}
