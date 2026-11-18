@@ -29,7 +29,7 @@ const Appliance: React.FC<{ project: Project; start: number; index: number }> = 
             </div>
           </div>
         ) : (
-          <div className="hidden md:block w-[140px]">
+          <div className="hidden md:block w-[168px]">
             <div className="bg-[#1b1d20] p-[5px] rounded-[2px]">
               <div className="aspect-[16/10] overflow-hidden bg-black">
                 <img src={project.imageUrl} alt="" className="w-full h-full object-cover" loading="lazy" />
