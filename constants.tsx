@@ -1,6 +1,6 @@
 
 import { Project, Experience, Education, Publication } from './types';
-import { Github, Linkedin, MessageSquare } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 
 export const PERSONAL_INFO = {
   name: "Thomas Ha",
@@ -12,7 +12,6 @@ export const PERSONAL_INFO = {
   socials: [
     { name: 'GitHub', url: 'https://github.com/fightforhash', icon: Github },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/thomas-h-75150019b/', icon: Linkedin },
-    { name: 'Blog', url: 'https://fightforhash.hashnode.dev', icon: MessageSquare },
   ],
   contactFormAction: "https://formspree.io/f/mdkogder"
 };
